@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itemHome"
+        android:icon="@drawable/ic_person_pin"
+        android:title="Ana Sayfa" />
+
+    <item
+        android:id="@+id/itemFilters"
+        android:icon="@drawable/ic_person_pin"
+        android:title="Kategoriler" />
+
+    <item
+        android:id="@+id/itemUsers"
+        android:icon="@drawable/ic_person_pin"
+        android:title="Mentoring" />
+
+    <item
+        android:id="@+id/itemChats"
+        android:icon="@drawable/ic_person_pin"
+        android:title="Mesajlar" />
+    <item
+        android:id="@+id/itemProfile"
+        android:icon="@drawable/ic_person_pin"
+        android:title="Sayfam" />
+
+</menu>
