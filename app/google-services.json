@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "735419290231",
+    "project_id": "petshare-b9f90",
+    "storage_bucket": "petshare-b9f90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735419290231:android:6681377c345e84e8a62c72",
+        "android_client_info": {
+          "package_name": "com.edushareteam.petshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735419290231-oa8ikefejeml8956ke2af6s86gvsdtu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhj5-NrarAiqZe0ysBlXnfKFh6sdfnAXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735419290231-oa8ikefejeml8956ke2af6s86gvsdtu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
