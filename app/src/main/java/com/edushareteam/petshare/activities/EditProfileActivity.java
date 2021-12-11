@@ -81,7 +81,7 @@ public class EditProfileActivity extends AppCompatActivity {
         mBuilderSelector = new AlertDialog.Builder(this);
         mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
         options = new CharSequence[] {"Galeriden resim seç ","Fotoğraf çek"};
-        databaseReference = FirebaseDatabase.getInstance().getReference("universities");
+        databaseReference = FirebaseDatabase.getInstance().getReference("cities");
 
         mImageProvider = new ImageProvider();
         mUsersProvider = new UsersProvider();

@@ -59,16 +59,18 @@ public class ProfilFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentProfilBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        databaseReference = FirebaseDatabase.getInstance().getReference("universities");
+        databaseReference = FirebaseDatabase.getInstance().getReference("cities");
         mUsersProvider = new UsersProvider();
         mAuthProvider = new AuthProvider();
         mPostProvider = new PostProvider();
+
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         binding.recyclerViewMyPost.setLayoutManager(linearLayoutManager);
         SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(50);
         binding.recyclerViewMyPost.addItemDecoration(spacingItemDecorator);
         //binding.recyclerViewMyPost.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
 
         binding.linearLayoutEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
