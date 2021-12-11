@@ -80,13 +80,13 @@ public class PetsFragment extends Fragment {
         binding.pigs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Pigs");
+                goToFilterActivity("Guinea Pigs");
             }
         });
         binding.rats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Rats");
+                goToFilterActivity("Rats and Mice");
             }
         });
 

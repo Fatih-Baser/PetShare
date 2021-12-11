@@ -32,7 +32,7 @@ public class PostProvider {
     }
 
     public Query getPostByCategoryAndTimestamp(String category) {
-        return mCollection.whereEqualTo("category", category).orderBy("timestamp", Query.Direction.DESCENDING);
+        return mCollection.whereEqualTo("pet", category).orderBy("timestamp", Query.Direction.DESCENDING);
     }
     public DatabaseReference getCategoryForSpinner() {
         return databaseReference = FirebaseDatabase.getInstance().getReference("categories");
@@ -48,7 +48,7 @@ public class PostProvider {
 
     public Task<Void> updatePost(@NonNull Post post) {
         Map<String, Object> map = new HashMap<>();
-        map.put("category", post.getPet());
+        map.put("pet", post.getPet());
         map.put("description", post.getDescription());
         map.put("image1", post.getImage1());
         map.put("image2", post.getImage2());
