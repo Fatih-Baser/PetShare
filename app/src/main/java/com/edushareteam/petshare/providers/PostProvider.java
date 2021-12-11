@@ -37,6 +37,9 @@ public class PostProvider {
     public DatabaseReference getCategoryForSpinner() {
         return databaseReference = FirebaseDatabase.getInstance().getReference("categories");
     }
+    public DatabaseReference getCitiesForSpinner() {
+        return databaseReference = FirebaseDatabase.getInstance().getReference("cities");
+    }
 
     public Query getPostByTitle(String title) {
         return mCollection.orderBy("title").startAt(title).endAt(title+'\uf8ff');
@@ -54,6 +57,8 @@ public class PostProvider {
         map.put("image2", post.getImage2());
         map.put("quality", post.getQuality());
         map.put("title", post.getTitle());
+        map.put("price", post.getTitle());
+        map.put("location", post.getTitle());
         map.put("expireTime", post.getExpireTime());
         map.put("timestamp", post.getTimestamp());
         return mCollection.document(post.getId()).update(map);

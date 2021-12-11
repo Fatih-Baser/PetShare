@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +65,9 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
     String mTitle = "";
     float mQuality = 0;
     String mSpinnerCategories = "";
+    String mSpinnerCities = "";
+    String mPrice = "";
+    String mLocation = "";
     String mDescription = "";
     AlertDialog mDialog;
     AlertDialog.Builder mBuilderSelector;
@@ -89,6 +93,11 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
     ArrayAdapter<String> arrayAdapter;
     ArrayList<String> spinnerDataList;
 
+    //City Spınner
+    ValueEventListener valueEventListenerCities;
+    ArrayAdapter<String> arrayAdapterCities;
+    ArrayList<String> spinnerDataListCities;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +115,19 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
                 .setMessage("Biraz bekle ")
                 .setCancelable(false).build();
 
+        binding.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i){
+                    case R.id.radio_Free:
+                        binding.linerPrice.setVisibility(View.GONE);
+                        break;
+                    case R.id.radio_Price:
+                        binding.linerPrice.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+        });
         mBuilderSelector = new AlertDialog.Builder(this);
         mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
         options = new CharSequence[]{"Galeriden resim seç", "Fotograf çek"};
@@ -129,7 +151,13 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
         arrayAdapter = new ArrayAdapter<>(AddProductActivity.this,
                 android.R.layout.simple_spinner_dropdown_item, spinnerDataList);
         binding.spinnerProductCategory.setAdapter(arrayAdapter);
+
+        spinnerDataListCities = new ArrayList<>();
+        arrayAdapterCities = new ArrayAdapter<>(AddProductActivity.this,
+                android.R.layout.simple_spinner_dropdown_item, spinnerDataListCities);
+        binding.spinnerProductCity.setAdapter(arrayAdapterCities);
         retrieveData();
+        retrieveDataCities();
     }
 
     private void selectOptionImage(final int numberImage) {
@@ -190,7 +218,7 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
         mDescription = Objects.requireNonNull(binding.textInputDescription.getText()).toString();
         mQuality = binding.ratingBarProductQualityUpload.getRating();
         mSpinnerCategories = binding.spinnerProductCategory.getSelectedItem().toString();
-
+        mPrice=binding.textInputPrice.getText().toString();
         if (!mTitle.isEmpty() && !mDescription.isEmpty()) {
             // GALERİDEN İKİ RESİM SEÇİYORUM
             if (mImageFile != null && mImageFile2 != null) {
@@ -230,6 +258,8 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
                                 post.setTitle(mTitle);
                                 post.setDescription(mDescription);
                                 post.setPet(mSpinnerCategories);
+                                post.setPrice(mPrice);
+                                post.setLocation(mLocation);
                                 post.setExpireTime(currentDateString);
                                 post.setQuality((double) mQuality);
                                 post.setIdUser(mAuthProvider.getUid());
@@ -277,6 +307,21 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
         });
     }
 
+    private void retrieveDataCities() {
+        DatabaseReference databaseReference = mPostProvider.getCitiesForSpinner();
+        valueEventListenerCities = databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot item :snapshot.getChildren()){
+                    spinnerDataListCities.add(Objects.requireNonNull(item.child("name").getValue()).toString());
+                }
+                arrayAdapterCities.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
     private void clearForm() {
         binding.textInputVideoGame.setText("");
         binding.textInputDescription.setText("");

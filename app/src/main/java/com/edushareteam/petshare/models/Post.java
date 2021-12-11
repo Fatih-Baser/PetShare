@@ -5,6 +5,8 @@ public class Post {
     private String title;
     private String description;
     private Double quality;
+    private String location;
+    private String price;
     private String image1;
     private String image2;
     private String idUser;
@@ -16,17 +18,36 @@ public class Post {
 
     }
 
-    public Post(String id, String title, String description, Double quality, String image1, String image2, String idUser, String pet, String expireTime, long timestamp) {
+    public Post(String id, String title, String description, Double quality, String location, String price, String image1, String image2, String idUser, String pet, String expireTime, long timestamp) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.quality = quality;
+        this.location = location;
+        this.price = price;
         this.image1 = image1;
         this.image2 = image2;
         this.idUser = idUser;
         this.pet = pet;
         this.expireTime = expireTime;
         this.timestamp = timestamp;
+    }
+
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getExpireTime() {
