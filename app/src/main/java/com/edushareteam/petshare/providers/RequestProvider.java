@@ -23,8 +23,8 @@ public class RequestProvider {
         mCollection = FirebaseFirestore.getInstance().collection("Requests");
     }
 
-    public Task<Void> save(Request post) {
-        return mCollection.document().set(post);
+    public Task<Void> save(Request request) {
+        return mCollection.document().set(request);
     }
 
     public Query getAll() {
@@ -50,7 +50,7 @@ public class RequestProvider {
         Map<String, Object> map = new HashMap<>();
         map.put("title", post.getTitle());
         map.put("bio", post.getBio());
-        map.put("image1", post.getImageProfile());
+        map.put("imageProfile", post.getImageProfile());
         map.put("timestamp", post.getTimestamp());
         return mCollection.document(post.getId()).update(map);
     }

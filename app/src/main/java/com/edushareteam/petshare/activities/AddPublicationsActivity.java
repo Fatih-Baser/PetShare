@@ -14,6 +14,7 @@ import com.edushareteam.petshare.models.User;
 import com.edushareteam.petshare.providers.AuthProvider;
 import com.edushareteam.petshare.providers.ImageProvider;
 import com.edushareteam.petshare.providers.RequestProvider;
+import com.edushareteam.petshare.providers.UsersProvider;
 import com.edushareteam.petshare.utils.ViewedMessageHelper;
 
 import java.io.File;
@@ -30,12 +31,14 @@ public class AddPublicationsActivity extends AppCompatActivity {
     ImageProvider mImageProvider;
     RequestProvider mPostProvider;
     AuthProvider mAuthProvider;
+    UsersProvider mUserProvider;
 
     String currentDateString;
     File mImageFile;
     File mImageFile2;
 
     String mCategory = "";
+    String mImage = "";
     String mTitle = "";
     float mQuality = 0;
     String mSpinnerCategories = "";
@@ -55,7 +58,15 @@ public class AddPublicationsActivity extends AppCompatActivity {
         mImageProvider = new ImageProvider();
         mPostProvider = new RequestProvider();
         mAuthProvider = new AuthProvider();
+        mUserProvider = new UsersProvider();
 
+        mUserProvider.getUser(mAuthProvider.getUid()).addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()){
+                if (documentSnapshot.contains("image")) {
+                    mImage = documentSnapshot.getString("image");
+                }
+            }
+        });
         mDialog = new SpotsDialog.Builder()
                 .setContext(this)
                 .setMessage("Biraz bekle ")
@@ -84,7 +95,7 @@ public class AddPublicationsActivity extends AppCompatActivity {
         User user = new User();
         Request request = new Request();
         request.setId(uuid);
-        request.setImageProfile(user.getImage());
+        request.setImageProfile(mImage);
         request.setTitle(mTitle);
         request.setBio(mDescription);
         request.setIdUser(mAuthProvider.getUid());

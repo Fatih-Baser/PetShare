@@ -140,6 +140,7 @@ public class UserProfileActivity extends AppCompatActivity {
                 }
                 if (documentSnapshot.contains("image")) {
                     String imageProfile = documentSnapshot.getString("image");
+
                     if (imageProfile != null) {
                         if (!imageProfile.isEmpty()) {
                             Picasso.with(UserProfileActivity.this).load(imageProfile).into(binding.circleImageProfile, new Callback() {

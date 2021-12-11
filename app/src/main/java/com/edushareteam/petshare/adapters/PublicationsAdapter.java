@@ -46,19 +46,17 @@ public class PublicationsAdapter extends FirestoreRecyclerAdapter<Request, Publi
     @Override
     protected void onBindViewHolder(@NonNull final ViewHolder holder, int position, @NonNull final Request request) {
 
-        DocumentSnapshot document = getSnapshots().getSnapshot(position);
-        final String userId = document.getId();
-        User user = new User();
-        request.setImageProfile(user.getImage());
+
         holder.textViewPublicationTitle.setText(request.getTitle());
         holder.textViewPublicationDesc.setText(request.getBio());
+
 
         if (request.getImageProfile() != null) {
             if (!request.getImageProfile().isEmpty()) {
                 Picasso.with(context).load(request.getImageProfile()).into(holder.imageViewPublicationUser, new Callback() {
                     @Override
                     public void onSuccess() {
-                        holder.bar.setVisibility(View.GONE);
+
                     }
 
                     @Override
