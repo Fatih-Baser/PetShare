@@ -104,6 +104,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView2">
 
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/radioGroup">
+
+            <RadioButton
+                android:id="@+id/radio_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="One"
+                android:onClick="checkFree"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/radio_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Two"
+                android:onClick="checkPrice"/>
+
+
+        </RadioGroup>
+        <LinearLayout
+            android:id="@+id/linerPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="25dp"
+                android:gravity="left"
+                android:text="Price"
+                android:textSize="15dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences"
+                />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
