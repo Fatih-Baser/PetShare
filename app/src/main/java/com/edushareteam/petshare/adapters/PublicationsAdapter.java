@@ -50,12 +50,12 @@ public class PublicationsAdapter extends FirestoreRecyclerAdapter<Request, Publi
         final String userId = document.getId();
         User user = new User();
         request.setImageProfile(user.getImage());
-        holder.textViewTitle.setText(request.getTitle());
-        holder.textViewBio.setText(request.getBio());
+        holder.textViewPublicationTitle.setText(request.getTitle());
+        holder.textViewPublicationDesc.setText(request.getBio());
 
         if (request.getImageProfile() != null) {
             if (!request.getImageProfile().isEmpty()) {
-                Picasso.with(context).load(request.getImageProfile()).into(holder.imageViewUser, new Callback() {
+                Picasso.with(context).load(request.getImageProfile()).into(holder.imageViewPublicationUser, new Callback() {
                     @Override
                     public void onSuccess() {
                         holder.bar.setVisibility(View.GONE);
@@ -63,7 +63,7 @@ public class PublicationsAdapter extends FirestoreRecyclerAdapter<Request, Publi
 
                     @Override
                     public void onError() {
-                        holder.imageViewUser.setImageResource(R.drawable.ic_baseline_error_24);
+                        holder.imageViewPublicationUser .setImageResource(R.drawable.ic_baseline_error_24);
                         holder.bar.setVisibility(View.INVISIBLE);
                     }
                 });
@@ -89,19 +89,19 @@ public class PublicationsAdapter extends FirestoreRecyclerAdapter<Request, Publi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewTitle;
-        TextView textViewBio;
+        TextView textViewPublicationTitle;
+        TextView textViewPublicationDesc;
 
-        ImageView imageViewUser;
+        ImageView imageViewPublicationUser;
 
         View viewHolder;
         ProgressBar bar;
 
         public ViewHolder(View view) {
             super(view);
-            textViewTitle = view.findViewById(R.id.textViewTitle);
-            textViewBio = view.findViewById(R.id.textViewbio);
-            imageViewUser = view.findViewById(R.id.imageViewProfil);
+            textViewPublicationTitle = view.findViewById(R.id.publicationTitle);
+            textViewPublicationDesc = view.findViewById(R.id.publicationDescription);
+            imageViewPublicationUser = view.findViewById(R.id.imageViewPublicationProfileImage);
             bar = view.findViewById(R.id.postLoading);
             viewHolder = view;
         }

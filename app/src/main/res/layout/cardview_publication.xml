@@ -1,110 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="18dp"
-        app:cardCornerRadius="19dp"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewPublication"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        app:cardCornerRadius="360dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:strokeColor="#9171B2"
+        app:strokeWidth="4dp">
+
+        <ImageView
+            android:id="@+id/imageViewPublicationProfileImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/user_purple" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/shape_view_pablication_card"
+        android:paddingTop="15dp"
+        android:paddingEnd="25dp"
+        android:paddingBottom="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/publicationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Title"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageViewProfil"
-                android:layout_width="160dp"
-                android:layout_height="147dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </ImageView>
-
-            <ProgressBar
-                android:id="@+id/postLoading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-
-                tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/publicationDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Description"
+            app:layout_constraintStart_toStartOf="@+id/publicationTitle"
+            app:layout_constraintTop_toBottomOf="@+id/publicationTitle" />
 
 
-            <TextView
-                android:id="@+id/textViewTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="12dp"
-                android:ellipsize="end"
-
-                android:maxLines="1"
-                android:text="Ürün Başlığı"
-                android:textColor="@color/colorDarkBlue"
-                android:textSize="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/cardView3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewPostCard" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="8dp"
-                app:cardBackgroundColor="@color/colorAccent"
-                app:cardCornerRadius="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                >
-
-                <TextView
-                    android:id="@+id/textViewbio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:paddingLeft="8dp"
-                    android:paddingTop="4dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="4dp"
-                    android:text="Kategori"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="10dp" />
-
-            </androidx.cardview.widget.CardView>
-
-            <ImageView
-                android:id="@+id/imageViewLike"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="4dp"
-                android:src="@drawable/heartdolu"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="MissingConstraints" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

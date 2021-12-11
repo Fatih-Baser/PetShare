@@ -67,7 +67,7 @@ public class PublicationsFragment extends Fragment implements MaterialSearchBar.
         View view = binding.getRoot();
 
         setHasOptionsMenu(true);
-        binding.recyclerViewProducts.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        binding.recyclerViewProducts.setLayoutManager(new GridLayoutManager(getActivity(), 1));
 
         mAuthProvider = new AuthProvider();
         mPostProvider = new RequestProvider();
