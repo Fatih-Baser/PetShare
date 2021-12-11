@@ -88,6 +88,43 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
                 });
             }
         }
+        holder.pet.setText(post.getPet());
+        switch (post.getPet()) {
+            case "Cats":
+                holder.imageviewPets.setImageResource(R.drawable.cat);
+                break;
+            case "Dogs":
+                holder.imageviewPets.setImageResource(R.drawable.dog);
+                break;
+            case "Birds":
+                holder.imageviewPets.setImageResource(R.drawable.bird);
+                break;
+            case "Rabbits":
+                holder.imageviewPets.setImageResource(R.drawable.rabbit);
+                break;
+            case "Horses":
+                holder.imageviewPets.setImageResource(R.drawable.horse);
+                break;
+            case "Ferrets":
+                holder.imageviewPets.setImageResource(R.drawable.ferret);
+                break;
+            case "Fish":
+                holder.imageviewPets.setImageResource(R.drawable.fish);
+                break;
+            case "Guinea Pigs":
+                holder.imageviewPets.setImageResource(R.drawable.pig);
+                break;
+            case "Rats and Mice":
+                holder.imageviewPets.setImageResource(R.drawable.rat);
+                break;
+            case "Amphibians":
+                holder.imageviewPets.setImageResource(R.drawable.turtle);
+                break;
+            case "Reptiles":
+                holder.imageviewPets.setImageResource(R.drawable.chameleon);
+                break;
+        }
+
         holder.viewHolder.setOnClickListener(view -> {
             Intent intent = new Intent(context, ProductDetailActivity.class);
            intent.putExtra("id", postId);
@@ -164,9 +201,10 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle;
-        TextView textViewLikes;
+        TextView pet;
         ImageView imageViewPost;
         ImageView imageViewLike;
+        ImageView imageviewPets;
         View viewHolder;
         ProgressBar bar;
 
@@ -175,7 +213,9 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
             textViewTitle = view.findViewById(R.id.textViewTitlePostCard);
            // textViewLikes = view.findViewById(R.id.textViewLikes);
             imageViewPost = view.findViewById(R.id.imageViewPostCard);
+            imageviewPets=view.findViewById(R.id.imageViewPets);
             imageViewLike = view.findViewById(R.id.imageViewLike);
+            pet=view.findViewById(R.id.pet);
             bar = view.findViewById(R.id.postLoading);
             viewHolder = view;
         }

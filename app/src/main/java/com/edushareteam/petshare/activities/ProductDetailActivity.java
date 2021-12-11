@@ -152,9 +152,44 @@ public class ProductDetailActivity extends AppCompatActivity {
                     String description = documentSnapshot.getString("description");
                     binding.textViewDescription.setText(description);
                 }
-                if (documentSnapshot.contains("category")) {
-                    String category = documentSnapshot.getString("category");
-                    binding.textViewNameCategory.setText(category);
+                if (documentSnapshot.contains("pet")) {
+                    String category = documentSnapshot.getString("pet");
+                    binding.abc.setText(category);
+                    switch (category) {
+                        case "Cats":
+                            binding.imageViewPets.setImageResource(R.drawable.cat);
+                            break;
+                        case "Dogs":
+                            binding.imageViewPets.setImageResource(R.drawable.dog);
+                            break;
+                        case "Birds":
+                            binding.imageViewPets.setImageResource(R.drawable.bird);
+                            break;
+                        case "Rabbits":
+                            binding.imageViewPets.setImageResource(R.drawable.rabbit);
+                            break;
+                        case "Horses":
+                            binding.imageViewPets.setImageResource(R.drawable.horse);
+                            break;
+                        case "Ferrets":
+                            binding.imageViewPets.setImageResource(R.drawable.ferret);
+                            break;
+                        case "Fish":
+                            binding.imageViewPets.setImageResource(R.drawable.fish);
+                            break;
+                        case "Guinea Pigs":
+                            binding.imageViewPets.setImageResource(R.drawable.pig);
+                            break;
+                        case "Rats and Mice":
+                            binding.imageViewPets.setImageResource(R.drawable.rat);
+                            break;
+                        case "Amphibians":
+                            binding.imageViewPets.setImageResource(R.drawable.turtle);
+                            break;
+                        case "Reptiles":
+                            binding.imageViewPets.setImageResource(R.drawable.chameleon);
+                            break;
+                    }
 
 
                 }
