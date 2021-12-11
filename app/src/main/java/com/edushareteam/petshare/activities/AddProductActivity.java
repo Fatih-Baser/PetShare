@@ -146,7 +146,7 @@ public class AddProductActivity extends AppCompatActivity {
                 Toast.makeText(this, "Dosyada bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
             if (photoFile != null) {
-                Uri photoUri = FileProvider.getUriForFile(AddProductActivity.this, "com.fatihbaser.edusharedemo", photoFile);
+                Uri photoUri = FileProvider.getUriForFile(AddProductActivity.this, "com.edushareteam.petshare", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(takePictureIntent, requestCode);
             }
@@ -222,7 +222,7 @@ public class AddProductActivity extends AppCompatActivity {
                                         // clearForm();
                                         Toast.makeText(AddProductActivity.this, "Bilgiler doğru bir şekilde saklandı", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(AddProductActivity.this, HomeActivity.class);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
                                         startActivity(intent);
 
                                     } else {
