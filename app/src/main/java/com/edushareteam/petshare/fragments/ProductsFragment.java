@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.edushareteam.petshare.R;
 import com.edushareteam.petshare.activities.AddProductActivity;
+import com.edushareteam.petshare.activities.FavoriteActivity;
 import com.edushareteam.petshare.adapters.PostsAdapter;
 import com.edushareteam.petshare.databinding.FragmentProductsBinding;
 import com.edushareteam.petshare.models.Post;
@@ -72,8 +73,8 @@ public class ProductsFragment extends Fragment implements MaterialSearchBar.OnSe
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.itemFav) {
-                   // Intent intent = new Intent(getContext(), FavoriteActivity.class);
-                   // startActivity(intent);
+                    Intent intent = new Intent(getContext(), FavoriteActivity.class);
+                    startActivity(intent);
 
                 }
                 return true;
