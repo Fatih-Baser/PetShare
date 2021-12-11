@@ -31,7 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.ChatActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".activities.ProductDetailActivity"
             android:exported="true"
@@ -42,16 +42,16 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.AddProductActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".activities.HomeActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".activities.RegisterActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">

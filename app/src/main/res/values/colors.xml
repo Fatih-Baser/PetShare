@@ -8,9 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#fa914e</color>
-    <color name="colorPrimaryDark">#fa914e</color>
-    <color name="colorAccent">#fa914e</color>
+    <color name="colorPrimary">#47127F</color>
+    <color name="colorPrimaryDark">#47127F</color>
+    <color name="colorAccent">#47127F</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGray">#D5D2D2</color>
@@ -21,9 +21,9 @@
 
 
     <!-- Screens background color-->
-    <color name="bg_screen1">#fa914e</color>
-    <color name="bg_screen2">#fa914e</color>
-    <color name="bg_screen3">#fa914e</color>
+    <color name="bg_screen1">#47127F</color>
+    <color name="bg_screen2">#47127F</color>
+    <color name="bg_screen3">#47127F</color>
 
 
     <!-- dots inactive colors -->
@@ -33,9 +33,9 @@
 
 
     <!-- dots active colors -->
-    <color name="dot_light_screen1">#fa914e</color>
-    <color name="dot_light_screen2">#fa914e</color>
-    <color name="dot_light_screen3">#fa914e</color>
+    <color name="dot_light_screen1">#47127F</color>
+    <color name="dot_light_screen2">#47127F</color>
+    <color name="dot_light_screen3">#47127F</color>
 
 
     <array name="array_dot_active">

@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Kategoriler"
+        android:text="Categories"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="24dp"
@@ -38,7 +38,7 @@
 
 
             <LinearLayout
-                android:id="@+id/fenbilimleri"
+                android:id="@+id/cats"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -60,7 +60,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/cat"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -71,14 +71,14 @@
                     android:layout_marginLeft="10dp"
 
                     android:gravity="center"
-                    android:text="Fen Bilimleri"
+                    android:text="Cats"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/eItimbilimleri"
+                android:id="@+id/dogs"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -100,7 +100,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/dog"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -109,16 +109,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
                     android:gravity="center"
-                    android:text="Eğitim Bilimleri"
+                    android:text="Dogs"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/dilveedebiyat"
+                android:id="@+id/birds"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -140,7 +139,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/bird"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -151,14 +150,14 @@
                     android:layout_marginLeft="10dp"
 
                     android:gravity="center"
-                    android:text="Dil ve Edebiyat"
+                    android:text="Birds"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/yabancDiller"
+                android:id="@+id/rabbits"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -180,7 +179,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/rabbit"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -191,14 +190,14 @@
                     android:layout_marginLeft="10dp"
 
                     android:gravity="center"
-                    android:text="Yabancı Diller"
+                    android:text="Rabbits"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/mimarliK"
+                android:id="@+id/horses"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -220,7 +219,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/horse"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -231,14 +230,14 @@
                     android:layout_marginLeft="10dp"
 
                     android:gravity="center"
-                    android:text="Mimarlık"
+                    android:text="Horses"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/teknolojivemuhendislkik"
+                android:id="@+id/ferrets"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -260,7 +259,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/ferret"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -271,14 +270,14 @@
                     android:layout_marginLeft="10dp"
 
                     android:gravity="center"
-                    android:text="Mühendislik"
+                    android:text="Ferrets"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/guzelsanatlar"
+                android:id="@+id/fish"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -300,7 +299,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/fish"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -311,14 +310,14 @@
                     android:layout_marginLeft="10dp"
 
                     android:gravity="center"
-                    android:text="Güzel Sanatlar"
+                    android:text="Fish"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/iktisat"
+                android:id="@+id/pigs"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -340,7 +339,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/pig"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -351,14 +350,14 @@
                     android:layout_marginLeft="10dp"
 
                     android:gravity="center"
-                    android:text="İktisadi Bilimler"
+                    android:text="Guinea Pigs"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/sporbilimleri"
+                android:id="@+id/rats"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
@@ -380,7 +379,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="3dp"
                         android:background="@color/white"
-                        android:src="@drawable/compass"
+                        android:src="@drawable/rat"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                 </androidx.cardview.widget.CardView>
@@ -391,7 +390,86 @@
                     android:layout_marginLeft="10dp"
 
                     android:gravity="center"
-                    android:text="Spor Bilimleri"
+                    android:text="Rats and Mice"
+                    android:textColor="#031239"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/amphibians"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_view_linear_layout_categories"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="21dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    app:cardCornerRadius="5dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:background="@color/white"
+                        android:src="@drawable/turtle"
+                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+
+                    android:gravity="center"
+                    android:text="Amphibians"
+                    android:textColor="#031239"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reptiles"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_view_linear_layout_categories"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="21dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    app:cardCornerRadius="5dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:background="@color/white"
+                        android:src="@drawable/chameleon"
+                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Reptiles"
                     android:textColor="#031239"
                     android:textSize="18dp" />
 

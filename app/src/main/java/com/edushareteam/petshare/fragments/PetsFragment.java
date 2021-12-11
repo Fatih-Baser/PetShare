@@ -32,61 +32,75 @@ public class PetsFragment extends Fragment {
         binding = FragmentPetsBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        binding.fenbilimleri.setOnClickListener(new View.OnClickListener() {
+        binding.cats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Fen Bilimleri");
+                goToFilterActivity("Cats");
             }
         });
 
-        binding.eItimbilimleri.setOnClickListener(new View.OnClickListener() {
+        binding.dogs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Eğitim Bilimleri");
+                goToFilterActivity("Dogs");
             }
         });
 
-        binding.dilveedebiyat.setOnClickListener(new View.OnClickListener() {
+        binding.birds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Dil ve Edebiyat");
+                goToFilterActivity("Birds");
             }
         });
 
-        binding.yabancDiller.setOnClickListener(new View.OnClickListener() {
+        binding.rabbits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Yabancı Diller");
+                goToFilterActivity("Rabbits");
             }
         });
-        binding.mimarliK.setOnClickListener(new View.OnClickListener() {
+        binding.horses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Mimarlık");
+                goToFilterActivity("Horses");
             }
         });
-        binding.teknolojivemuhendislkik.setOnClickListener(new View.OnClickListener() {
+        binding.ferrets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Mühendislik");
+                goToFilterActivity("Ferrets");
             }
         });
-        binding.guzelsanatlar.setOnClickListener(new View.OnClickListener() {
+        binding.fish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Güzel Sanatlar");
+                goToFilterActivity("Fish");
             }
         });
-        binding.iktisat.setOnClickListener(new View.OnClickListener() {
+        binding.pigs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("İktisadi Bilimler");
+                goToFilterActivity("Pigs");
             }
         });
-        binding.sporbilimleri.setOnClickListener(new View.OnClickListener() {
+        binding.rats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToFilterActivity("Spor Bilimleri");
+                goToFilterActivity("Rats");
+            }
+        });
+
+        binding.amphibians.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToFilterActivity("Amphibians");
+            }
+        });
+
+        binding.reptiles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToFilterActivity("Reptiles");
             }
         });
 

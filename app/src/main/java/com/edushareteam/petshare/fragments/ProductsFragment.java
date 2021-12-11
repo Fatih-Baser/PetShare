@@ -50,7 +50,6 @@ public class ProductsFragment extends Fragment implements MaterialSearchBar.OnSe
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.main_menu,menu);
-
     }
 
     @Override
