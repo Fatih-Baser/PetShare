@@ -8,17 +8,28 @@
     android:fitsSystemWindows="true"
     tools:context=".activities.LoginActivity">
 
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:src="@drawable/edunew"
+        android:src="@drawable/logo_long"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -43,7 +54,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/ic_person_pin" />
+                android:src="@drawable/ic_baseline_mail_24" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -53,7 +64,7 @@
                     android:id="@+id/textInputEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="E-mail"
+                    android:hint="E-mail Adress"
                     android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -71,11 +82,11 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/ic_person_pin" />
+                android:src="@drawable/key" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -85,7 +96,7 @@
                     android:id="@+id/textInputPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Şifre"
+                    android:hint="Password"
                     android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -102,9 +113,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
-
-
-        android:text="Giriş"
+        android:background="@drawable/shape_view_button_layout"
+        android:text="Log in"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,15 +137,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="Hala bir hesabınız yok mu?" />
+            android:text="Don't have an account yet?" />
 
         <TextView
             android:id="@+id/textViewRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-
-            android:text="Hesap oluştur"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:text="@string/create_account"
            />
     </LinearLayout>
 
@@ -144,9 +156,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-
-        android:text="Şifreni mi unuttun?"
-
+        android:text="@string/forget_your_password"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />

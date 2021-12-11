@@ -2,13 +2,6 @@ package com.edushareteam.petshare.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,24 +9,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.edushareteam.petshare.R;
-import com.edushareteam.petshare.activities.AddProductActivity;
 import com.edushareteam.petshare.activities.AddPublicationsActivity;
 import com.edushareteam.petshare.activities.FavoriteActivity;
-import com.edushareteam.petshare.adapters.PostsAdapter;
 import com.edushareteam.petshare.adapters.PublicationsAdapter;
-
 import com.edushareteam.petshare.databinding.FragmentPublicationsBinding;
-import com.edushareteam.petshare.models.Post;
 import com.edushareteam.petshare.models.Request;
 import com.edushareteam.petshare.providers.AuthProvider;
-import com.edushareteam.petshare.providers.PostProvider;
 import com.edushareteam.petshare.providers.RequestProvider;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.Query;
 import com.mancj.materialsearchbar.MaterialSearchBar;
-
-
 
 public class PublicationsFragment extends Fragment implements MaterialSearchBar.OnSearchActionListener {
 

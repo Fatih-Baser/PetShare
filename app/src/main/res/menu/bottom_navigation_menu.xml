@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/itemHome"
-        android:icon="@drawable/ic_person_pin"
+        android:icon="@drawable/ic_home"
         android:title="Ana Sayfa" />
 
     <item
         android:id="@+id/itemFilters"
-        android:icon="@drawable/ic_person_pin"
+        android:icon="@drawable/ic_filter"
         android:title="Kategoriler" />
 
     <item
         android:id="@+id/itemUsers"
-        android:icon="@drawable/ic_person_pin"
+        android:icon="@drawable/baseline_newspaper_20"
         android:title="Mentoring" />
 
     <item
         android:id="@+id/itemChats"
-        android:icon="@drawable/ic_person_pin"
+        android:icon="@drawable/ic_baseline_email_24"
         android:title="Mesajlar" />
     <item
         android:id="@+id/itemProfile"
-        android:icon="@drawable/ic_person_pin"
+        android:icon="@drawable/user_white"
         android:title="Sayfam" />
 
 </menu>

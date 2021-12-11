@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/battambang_regular</item>
+        <item name="android:fontFamily">@font/gudea</item>
     </style>
     <style name="ToolbarName" parent="ThemeOverlay.AppCompat.ActionBar" >
         <item name="colorControlNormal">@color/colorWhite</item>

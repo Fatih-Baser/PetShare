@@ -91,9 +91,7 @@ public class PublicationsAdapter extends FirestoreRecyclerAdapter<Request, Publi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewPublicationTitle;
         TextView textViewPublicationDesc;
-
         ImageView imageViewPublicationUser;
-
         View viewHolder;
         ProgressBar bar;
 

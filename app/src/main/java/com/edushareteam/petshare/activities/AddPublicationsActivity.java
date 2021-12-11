@@ -81,15 +81,15 @@ public class AddPublicationsActivity extends AppCompatActivity {
         mDialog.show();
 
         String uuid = UUID.randomUUID().toString();
-        User posts = new User();
-        Request post = new Request();
-        post.setId(uuid);
-        post.setImageProfile(posts.getImage());
-        post.setTitle(mTitle);
-        post.setBio(mDescription);
-        post.setIdUser(mAuthProvider.getUid());
-        post.setTimestamp(new Date().getTime());
-        mPostProvider.save(post).addOnCompleteListener(taskSave -> {
+        User user = new User();
+        Request request = new Request();
+        request.setId(uuid);
+        request.setImageProfile(user.getImage());
+        request.setTitle(mTitle);
+        request.setBio(mDescription);
+        request.setIdUser(mAuthProvider.getUid());
+        request.setTimestamp(new Date().getTime());
+        mPostProvider.save(request).addOnCompleteListener(taskSave -> {
             mDialog.dismiss();
             if (taskSave.isSuccessful()) {
                 // clearForm();

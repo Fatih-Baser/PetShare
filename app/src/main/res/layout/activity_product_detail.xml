@@ -110,7 +110,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
@@ -119,48 +119,57 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp">
+                        android:background="#A388BF">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/circleImageProfile"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginEnd="16dp"
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/materialCardView"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
                             android:layout_marginBottom="8dp"
-                            app:civ_border_color="@color/colorGray"
-                            app:civ_border_width="2dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <ProgressBar
-                            android:id="@+id/postLoading"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginEnd="16dp"
-                            android:layout_marginBottom="8dp"
+                            app:cardCornerRadius="360dp"
+                            app:strokeWidth="3dp"
+                            app:strokeColor="@color/colorAccent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
-                        </ProgressBar>
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/circleImageProfile"
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:layout_gravity="center"
+                                app:civ_border_color="@color/colorGray"
+                                app:civ_border_width="2dp" />
+
+                            <ProgressBar
+                                android:id="@+id/postLoading"
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:layout_gravity="center">
+
+                            </ProgressBar>
+
+                        </com.google.android.material.card.MaterialCardView>
+
 
                         <TextView
                             android:id="@+id/textViewUsername"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginStart="8dp"
                             android:ellipsize="end"
+                            android:fontFamily="@font/gudea"
                             android:maxLines="1"
                             android:text="Kullanıcı ismi"
                             android:textAllCaps="true"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="15dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/circleImageProfile"
-                            app:layout_constraintStart_toEndOf="@+id/circleImageProfile"
-                            app:layout_constraintTop_toTopOf="@id/circleImageProfile" />
+                            android:textColor="@color/white"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+                            app:layout_constraintStart_toEndOf="@+id/materialCardView"
+                            app:layout_constraintTop_toTopOf="@+id/materialCardView" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -181,8 +190,8 @@
                     android:maxLines="2"
                     android:text="Title"
                     android:textColor="@color/colorAccent"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
+                    android:textSize="24dp"
+                    android:fontFamily="@font/gudea"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -195,16 +204,16 @@
                     android:visibility="invisible"
                     android:maxLines="2"
                     android:text="Title"
+                    android:fontFamily="@font/gudea"
                     android:textColor="@color/colorAccent"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
+                    android:textSize="24dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView3"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textViewTitle"
@@ -212,8 +221,8 @@
 
                     <ImageView
                         android:id="@+id/imageViewPets"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="31dp"
+                        android:layout_height="31dp"
                         android:layout_gravity="center"
                         android:src="@drawable/dog" />
 
@@ -221,8 +230,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView4"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="8dp"
                     app:layout_constraintBottom_toBottomOf="@+id/cardView3"
                     app:layout_constraintStart_toEndOf="@+id/cardView3"
@@ -231,29 +240,52 @@
                     <ImageView
                         android:id="@+id/imageViewValue"
                         android:src="@drawable/coin"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="31dp"
+                        android:layout_height="31dp"
                         android:layout_gravity="center" />
 
                 </androidx.cardview.widget.CardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/colorGray" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:text="Pricee"
+                android:fontFamily="@font/gudea"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp" />
 
-                android:layout_marginTop="10dp"
-                app:cardBackgroundColor="@color/colorAccent"
-                app:cardCornerRadius="15dp">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/colorGray" />
 
-
-
-
-
-
-            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:text="Location"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
@@ -270,7 +302,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="25dp"
 
-                android:text="TANIM"
+                android:text="Description"
                 android:textColor="@color/colorBlack"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -280,7 +312,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14dp"
-
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="25dp"
@@ -301,7 +332,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="25dp"
 
-                android:text="Tarih"
+                android:text="Expired time"
                 android:textColor="@color/colorBlack"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -335,11 +366,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="25dp"
-                    android:text="ÜRÜN DURUMU"
-
+                    android:text="Quality"
                     android:textColor="@color/colorBlack"
                     android:textSize="18dp"
                     android:textStyle="bold" />

@@ -23,5 +23,7 @@
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
     <string name="policy">Kayıt olduğunuz takdirde bizim \n <u><b>güvenlik şartlarımızı</b></u> kabul etmiş olursunuz. </string>
+    <string name="create_account"><u>Create Account?</u></string>
+    <string name="forget_your_password"><u>Forget your password?</u></string>
 
 </resources>
