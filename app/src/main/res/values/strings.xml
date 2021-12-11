@@ -2,4 +2,26 @@
     <string name="app_name">PetShare</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
+    <!--    <string name="default_web_client_id">\"13099645599-gmb1ep5p1hdcestlp257h1u83b2rlmct.apps.googleusercontent.com\"</string>-->
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">Geç</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Hoşgeldiniz</string>
+    <string name="slide_1_desc">EduShare hakkında \n size bir kaç bilgilendirmemiz var!</string>
+
+    <string name="slide_2_title">EduShare Nedir?</string>
+    <string name="slide_2_desc">Öğrencilerin okul ihtiyaçlarını \n diğer öğrencilerden hızlı ve kolayca \n temin edebilecekleri telefon uygulaması.</string>
+
+    <string name="slide_3_title">Mentoring Özelliği</string>
+    <string name="slide_3_desc">Üniversiteye yeni başlayan öğrenciler \n üst dönemleriyle iletişime geçip onların \n tecrübe ve bilgilerinden yararlanabiliyor.</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="policy">Kayıt olduğunuz takdirde bizim \n <u><b>güvenlik şartlarımızı</b></u> kabul etmiş olursunuz. </string>
+
 </resources>

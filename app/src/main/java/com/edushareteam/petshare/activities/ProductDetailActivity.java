@@ -100,10 +100,10 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         if (!mAuthProvider.getUid().equals(mIdUser)) {
 
-            /*Intent intent = new Intent(ProductDetailActivity.this, ChatActivity.class);
+            Intent intent = new Intent(ProductDetailActivity.this, ChatActivity.class);
             intent.putExtra("idUser1", mAuthProvider.getUid());
             intent.putExtra("idUser2", mIdUser);
-            startActivity(intent);*/
+            startActivity(intent);
         }
         else{
             Toast.makeText(this, "Üzgünüm kendine mesaj gönderemezsin !!", Toast.LENGTH_LONG).show();

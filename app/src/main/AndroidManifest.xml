@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetShare">
         <activity
+            android:name=".activities.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ProductDetailActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
@@ -56,6 +59,22 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <service
+            android:name=".services.MyFirebaseMessagingClient"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <receiver
+            android:name=".receivers.MessageReceiver"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>
