@@ -4,16 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.21927083333333333" />
+        <entry key="app/src/main/res/drawable/ic_chat.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_person_pin.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/activity_product_detail.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/cardview_post.xml" value="0.1" />
         <entry key="app/src/main/res/layout/cardviewfavorite.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/dialog_reset.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_products.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/slider_layout_item.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.165625" />
       </map>

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.edushareteam.petshare.R;
+import com.edushareteam.petshare.activities.ProductDetailActivity;
 import com.edushareteam.petshare.models.Like;
 import com.edushareteam.petshare.providers.AuthProvider;
 import com.edushareteam.petshare.providers.LikesProvider;
@@ -72,9 +73,9 @@ public class FavoriteAdapter extends FirestoreRecyclerAdapter<Like, FavoriteAdap
             }
         }
         holder.viewHolder.setOnClickListener(view -> {
-          //  Intent intent = new Intent(context, PostDetailActivity.class);
-           // intent.putExtra("id", like.getIdPost());
-           // context.startActivity(intent);
+            Intent intent = new Intent(context, ProductDetailActivity.class);
+            intent.putExtra("id", like.getIdPost());
+           context.startActivity(intent);
         });
 
 

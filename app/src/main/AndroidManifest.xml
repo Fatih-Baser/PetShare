@@ -18,9 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetShare">
         <activity
+            android:name=".activities.ProductDetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activities.FavoriteActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.AddProductActivity"
             android:exported="false" />
