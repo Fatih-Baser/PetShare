@@ -85,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         //Providers
-        databaseReference = FirebaseDatabase.getInstance().getReference("universities");
+        databaseReference = FirebaseDatabase.getInstance().getReference("categories");
         mAuthProvider = new AuthProvider();
         mImageProvider = new ImageProvider();
         mUsersProvider = new UsersProvider();

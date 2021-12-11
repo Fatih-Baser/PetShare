@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetShare">
         <activity
+            android:name=".activities.AddProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.HomeActivity"
             android:exported="false" />
         <activity
