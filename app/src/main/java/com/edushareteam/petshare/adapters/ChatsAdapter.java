@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.edushareteam.petshare.R;
+import com.edushareteam.petshare.activities.ChatActivity;
 import com.edushareteam.petshare.models.Chat;
 import com.edushareteam.petshare.providers.AuthProvider;
 import com.edushareteam.petshare.providers.ChatsProvider;
@@ -123,11 +124,11 @@ public class ChatsAdapter extends FirestoreRecyclerAdapter<Chat, ChatsAdapter.Vi
     }
 
     private void goToChatActivity(String chatId, String idUser1, String idUser2) {
-       /* Intent intent = new Intent(context, ChatActivity.class);
+        Intent intent = new Intent(context, ChatActivity.class);
         intent.putExtra("idChat", chatId);
         intent.putExtra("idUser1", idUser1);
         intent.putExtra("idUser2", idUser2);
-        context.startActivity(intent);*/
+        context.startActivity(intent);
     }
 
     private void getUserInfo(String idUser, final ViewHolder holder) {
