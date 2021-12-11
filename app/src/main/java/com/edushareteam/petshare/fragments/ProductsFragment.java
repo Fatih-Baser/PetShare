@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.edushareteam.petshare.R;
+import com.edushareteam.petshare.activities.AddProductActivity;
+import com.edushareteam.petshare.adapters.PostsAdapter;
 import com.edushareteam.petshare.databinding.FragmentProductsBinding;
 import com.edushareteam.petshare.models.Post;
 import com.edushareteam.petshare.providers.AuthProvider;
@@ -30,8 +32,8 @@ public class ProductsFragment extends Fragment implements MaterialSearchBar.OnSe
     private FragmentProductsBinding binding;
     AuthProvider mAuthProvider;
     PostProvider mPostProvider;
-    //PostsAdapter mPostsAdapter;
-   // PostsAdapter mPostsAdapterSearch;
+   PostsAdapter mPostsAdapter;
+    PostsAdapter mPostsAdapterSearch;
 
     public ProductsFragment() {
         // Required empty public constructor
@@ -88,10 +90,10 @@ public class ProductsFragment extends Fragment implements MaterialSearchBar.OnSe
                 new FirestoreRecyclerOptions.Builder<Post>()
                         .setQuery(query, Post.class)
                         .build();
-       /* mPostsAdapterSearch = new PostsAdapter(options, getContext());
+       mPostsAdapterSearch = new PostsAdapter(options, getContext());
         mPostsAdapterSearch.notifyDataSetChanged();
         binding.recyclerViewProducts.setAdapter(mPostsAdapterSearch);
-        mPostsAdapterSearch.startListening();*/
+        mPostsAdapterSearch.startListening();
     }
 
     private void getAllPost() {
@@ -100,10 +102,10 @@ public class ProductsFragment extends Fragment implements MaterialSearchBar.OnSe
                 new FirestoreRecyclerOptions.Builder<Post>()
                         .setQuery(query, Post.class)
                         .build();
-       /* mPostsAdapter = new PostsAdapter(options, getContext());
+        mPostsAdapter = new PostsAdapter(options, getContext());
         mPostsAdapter.notifyDataSetChanged();
         binding.recyclerViewProducts.setAdapter(mPostsAdapter);
-        mPostsAdapter.startListening();*/
+        mPostsAdapter.startListening();
     }
 
     @Override
@@ -115,15 +117,15 @@ public class ProductsFragment extends Fragment implements MaterialSearchBar.OnSe
     @Override
     public void onStop() {
         super.onStop();
-       /* mPostsAdapter.stopListening();
+        mPostsAdapter.stopListening();
         if (mPostsAdapterSearch != null) {
             mPostsAdapterSearch.stopListening();
-        }*/
+        }
     }
 
     private void goToPost() {
-      //  Intent intent = new Intent(getContext(), PostActivity.class);
-       // startActivity(intent);
+       Intent intent = new Intent(getContext(), AddProductActivity.class);
+       startActivity(intent);
     }
 
     private void logout() {
@@ -136,9 +138,9 @@ public class ProductsFragment extends Fragment implements MaterialSearchBar.OnSe
     @Override
     public void onDestroy() {
         super.onDestroy();
-       /* if (mPostsAdapter.getListener() != null) {
+        if (mPostsAdapter.getListener() != null) {
             mPostsAdapter.getListener().remove();
-        }*/
+        }
     }
 
     @Override
