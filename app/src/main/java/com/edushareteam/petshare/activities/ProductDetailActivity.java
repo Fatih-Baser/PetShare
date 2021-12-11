@@ -86,10 +86,10 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     private void goToShowProfile() {
         if (!mIdUser.equals("")) {
-            /*Intent intent = new Intent(ProductDetailActivity.this, UserProfileActivity.class);
+            Intent intent = new Intent(ProductDetailActivity.this, UserProfileActivity.class);
             intent.putExtra("idUser", mIdUser);
             System.out.println(mIdUser+"idUser");
-            startActivity(intent);*/
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Kullanıcı kimliği hala yüklenmedi", Toast.LENGTH_SHORT).show();
         }

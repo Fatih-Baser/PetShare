@@ -65,15 +65,15 @@ public class HomeActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.itemHome) {
                     // FRAGMENT HOME
                     openFragment(new ProductsFragment());
-                } else if (item.getItemId() == R.id.itemUsers) {
+                } else if (item.getItemId() == R.id.itemFilters) {
                     // FRAGMENT CHATS
                     openFragment(new PetsFragment());
 
-                } else if (item.getItemId() == R.id.itemChats) {
+                } else if (item.getItemId() == R.id.itemUsers) {
                     // FRAGMENT CHATS
                     openFragment(new PublicationsFragment());
 
-                } else if (item.getItemId() == R.id.itemFilters) {
+                } else if (item.getItemId() == R.id.itemChats) {
                     // FRAGMENT FILTROS
                     openFragment(new ChatsFragment());
 

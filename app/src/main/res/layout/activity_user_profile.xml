@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProfilFragment">
+    tools:context=".activities.UserProfileActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -38,32 +38,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-
-                    <ImageView
-                        android:id="@+id/linearLayoutEditProfile"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@drawable/ic_back_animated"
-                        app:layout_constraintBottom_toTopOf="@+id/circleImageProfile"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Profilim"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="15dp"
+
+                        android:text="Kullanıcı bilgileri"
                         android:textColor="@color/colorWhite"
                         android:textSize="24dp"
-
-                        app:layout_constraintBottom_toBottomOf="@+id/linearLayoutEditProfile"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/circleImageProfile"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/linearLayoutEditProfile" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/circleImageProfile"
@@ -91,46 +79,24 @@
 
                     <TextView
                         android:id="@+id/textViewUsername"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:gravity="center"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
                         android:text="Isim ve Soyisim"
                         android:textColor="@color/black"
                         android:textSize="24dp"
+                        android:padding="10dp"
 
                         android:textStyle="bold"
                         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/circleImageProfile" />
-
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardViewEditProfile"
-                        android:layout_width="42dp"
-                        android:layout_height="42dp"
-                        app:cardCornerRadius="360dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-                        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-                        app:layout_constraintHorizontal_bias="0.90"
-                        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewUsername"
-                        app:layout_constraintVertical_bias="0.10"
-                        app:strokeColor="@color/colorAccent"
-                        app:strokeWidth="0.5dp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/chatback" />
-                    </com.google.android.material.card.MaterialCardView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout"
@@ -246,6 +212,15 @@
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chat"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="15dp"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
