@@ -138,10 +138,6 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
-                    if (documentSnapshot.contains("email")) {
-                        String email = documentSnapshot.getString("email");
-                        binding.textViewEmail.setText(email);
-                    }
                     if (documentSnapshot.contains("bio")) {
                         String bio = documentSnapshot.getString("bio");
                         binding.textViewBio.setText(bio);
@@ -152,14 +148,9 @@ public class ProfilFragment extends Fragment {
                         binding.textViewUsername.setText(username);
                     }
 
-                    if (documentSnapshot.contains("department")) {
-                        String department = documentSnapshot.getString("department");
-                        binding.textViewDepartment.setText(department);
-                    }
-
-                    if (documentSnapshot.contains("university")) {
-                        String university = documentSnapshot.getString("university");
-                        binding.textViewUniversity.setText(university);
+                    if (documentSnapshot.contains("city")) {
+                        String university = documentSnapshot.getString("city");
+                        binding.textViewCity.setText(university);
                     }
 
                     if (documentSnapshot.contains("image")) {

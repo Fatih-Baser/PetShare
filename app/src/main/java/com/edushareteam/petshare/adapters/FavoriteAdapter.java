@@ -105,7 +105,6 @@ public class FavoriteAdapter extends FirestoreRecyclerAdapter<Like, FavoriteAdap
         public ViewHolder(View view) {
             super(view);
             textViewTitle = view.findViewById(R.id.textViewTitlePostCard);
-            textViewCategory = view.findViewById(R.id.textViewCategory);
 
             delete = view.findViewById(R.id.imageViewLike);
             imageViewPost = view.findViewById(R.id.imageViewPostCard);

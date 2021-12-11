@@ -76,7 +76,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         mNotificationProvider = new NotificationProvider();
 
         getPost();
-        binding.btnShowProfile.setOnClickListener(view1 -> goToShowProfile());
+        //binding.btnShowProfile.setOnClickListener(view1 -> goToShowProfile());
 
         // getNumberLikes();
         mExtraTitle = getIntent().getStringExtra("title");

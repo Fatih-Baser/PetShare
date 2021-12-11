@@ -29,7 +29,7 @@
                     android:id="@+id/imageViewCover"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:background="#fa914e"
+                    android:background="@color/colorAccent"
                     android:transitionName="transition name picture"
                     app:layout_collapseMode="parallax" />
 
@@ -46,20 +46,19 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="24dp"
                         android:layout_marginBottom="15dp"
-                        android:src="@drawable/ic_back_animated"
+                        android:src="@drawable/ic_baseline_logout_24"
                         app:layout_constraintBottom_toTopOf="@+id/circleImageProfile"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintHorizontal_bias="1."
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Profilim"
+                        android:text="My Proflie"
                         android:textColor="@color/colorWhite"
                         android:textSize="24dp"
-
                         app:layout_constraintBottom_toBottomOf="@+id/linearLayoutEditProfile"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +69,7 @@
                         android:layout_width="172dp"
                         android:layout_height="172dp"
                         android:layout_marginTop="55dp"
-                        app:civ_border_color="@color/colorWhite"
+                        app:civ_border_color="@color/white"
                         app:civ_border_width="5dp"
                         app:civ_circle_background_color="@color/colorGray"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -117,19 +116,18 @@
                         app:cardCornerRadius="360dp"
                         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
                         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-                        app:layout_constraintHorizontal_bias="0.90"
+                        app:layout_constraintHorizontal_bias="1"
                         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
                         app:layout_constraintTop_toBottomOf="@+id/textViewUsername"
-                        app:layout_constraintVertical_bias="0.10"
-                        app:strokeColor="@color/colorAccent"
-                        app:strokeWidth="0.5dp">
+                        app:layout_constraintVertical_bias="0.25"
+                        app:strokeColor="#9171B2"
+                        app:strokeWidth="2dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/chatback" />
+                            android:src="@drawable/ic_baseline_edit_24" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -149,45 +147,20 @@
                         app:layout_constraintTop_toBottomOf="@id/textViewUsername">
 
                         <TextView
-                            android:id="@+id/textViewUniversity"
+                            android:id="@+id/textViewCity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:text="University"
+                            android:text="City"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="12dp"
 
-                            app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
+                            app:layout_constraintBottom_toTopOf="@+id/textViewBio"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.12"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/textViewDepartment"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:text="Department"
-
-                            android:textColor="@color/colorDarkBlue"
-                            android:textSize="12dp"
-                            app:layout_constraintBottom_toTopOf="@+id/textViewBio"
-                            app:layout_constraintStart_toStartOf="@+id/textViewEmail"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
-
-                        <TextView
-                            android:id="@+id/textViewEmail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:text="Email"
-
-                            android:textColor="@color/colorDarkBlue"
-                            android:textSize="12dp"
-                            app:layout_constraintBottom_toTopOf="@+id/textViewDepartment"
-                            app:layout_constraintStart_toStartOf="@+id/textViewUniversity"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewUniversity" />
 
                         <TextView
                             android:id="@+id/textViewBio"
@@ -195,12 +168,10 @@
                             android:layout_height="wrap_content"
                             android:paddingEnd="10dp"
                             android:text="Bio"
-
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="12dp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/textViewDepartment"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewDepartment"
+                            app:layout_constraintStart_toStartOf="@+id/textViewCity"
                             tools:ignore="RtlSymmetry" />
 
 

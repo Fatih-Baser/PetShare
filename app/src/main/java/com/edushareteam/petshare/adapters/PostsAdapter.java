@@ -71,7 +71,7 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
         }
 
         holder.textViewTitle.setText(post.getTitle());
-        holder.textViewCategory.setText(post.getPet());
+        //holder.textViewCategory.setText(post.getPet());
         if (post.getImage1() != null) {
             if (!post.getImage1().isEmpty()) {
                 Picasso.with(context).load(post.getImage1()).into(holder.imageViewPost, new Callback() {
@@ -128,10 +128,10 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
             int numberDocuments = queryDocumentSnapshots.size();
             if (numberDocuments > 0) {
                 String idLike = queryDocumentSnapshots.getDocuments().get(0).getId();
-                holder.imageViewLike.setImageResource(R.drawable.heart);
+                holder.imageViewLike.setImageResource(R.drawable.ic_baseline_bookmark_border_24);
                 mLikesProvider.delete(idLike);
             } else {
-                holder.imageViewLike.setImageResource(R.drawable.heartdolu);
+                holder.imageViewLike.setImageResource(R.drawable.ic_baseline_bookmark_24);
                 mLikesProvider.create(like);
             }
         });
@@ -142,9 +142,9 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
         mLikesProvider.getLikeByPostAndUser(idPost, idUser).get().addOnSuccessListener(queryDocumentSnapshots -> {
             int numberDocuments = queryDocumentSnapshots.size();
             if (numberDocuments > 0) {
-                holder.imageViewLike.setImageResource(R.drawable.heartdolu);
+                holder.imageViewLike.setImageResource(R.drawable.ic_baseline_bookmark_24);
             } else {
-                holder.imageViewLike.setImageResource(R.drawable.heart);
+                holder.imageViewLike.setImageResource(R.drawable.ic_baseline_bookmark_border_24);
             }
         });
 
@@ -164,7 +164,6 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle;
-        TextView textViewCategory;
         TextView textViewLikes;
         ImageView imageViewPost;
         ImageView imageViewLike;
@@ -174,7 +173,6 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
         public ViewHolder(View view) {
             super(view);
             textViewTitle = view.findViewById(R.id.textViewTitlePostCard);
-            textViewCategory = view.findViewById(R.id.textViewCategory);
            // textViewLikes = view.findViewById(R.id.textViewLikes);
             imageViewPost = view.findViewById(R.id.imageViewPostCard);
             imageViewLike = view.findViewById(R.id.imageViewLike);

@@ -29,7 +29,7 @@
                     android:id="@+id/imageViewCover"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:background="#fa914e"
+                    android:background="@color/colorAccent"
                     android:transitionName="transition name picture"
                     app:layout_collapseMode="parallax" />
 
@@ -44,7 +44,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="15dp"
 
-                        android:text="Kullanıcı bilgileri"
+                        android:text="User Info"
                         android:textColor="@color/colorWhite"
                         android:textSize="24dp"
                         android:textStyle="bold"
@@ -115,11 +115,11 @@
                         app:layout_constraintTop_toBottomOf="@id/textViewUsername">
 
                         <TextView
-                            android:id="@+id/textViewUniversity"
+                            android:id="@+id/textViewCity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:text="University"
+                            android:text="City"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="12dp"
 
@@ -129,18 +129,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/textViewDepartment"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:text="Department"
 
-                            android:textColor="@color/colorDarkBlue"
-                            android:textSize="12dp"
-                            app:layout_constraintBottom_toTopOf="@+id/textViewBio"
-                            app:layout_constraintStart_toStartOf="@+id/textViewEmail"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
 
                         <TextView
                             android:id="@+id/textViewEmail"
@@ -151,9 +140,8 @@
 
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="12dp"
-                            app:layout_constraintBottom_toTopOf="@+id/textViewDepartment"
-                            app:layout_constraintStart_toStartOf="@+id/textViewUniversity"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewUniversity" />
+                            app:layout_constraintStart_toStartOf="@+id/textViewCity"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewCity" />
 
                         <TextView
                             android:id="@+id/textViewBio"
@@ -161,12 +149,11 @@
                             android:layout_height="wrap_content"
                             android:paddingEnd="10dp"
                             android:text="Bio"
-
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="12dp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/textViewDepartment"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewDepartment"
+                            app:layout_constraintStart_toStartOf="@+id/textViewEmail"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewEmail"
                             tools:ignore="RtlSymmetry" />
 
 
