@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetShare">
         <activity
+            android:name=".activities.AddPublicationsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.UserProfileActivity"
             android:exported="false" />
         <activity

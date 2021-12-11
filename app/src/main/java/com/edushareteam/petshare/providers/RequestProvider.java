@@ -3,6 +3,7 @@ package com.edushareteam.petshare.providers;
 import androidx.annotation.NonNull;
 
 import com.edushareteam.petshare.models.Post;
+import com.edushareteam.petshare.models.Request;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -14,16 +15,15 @@ import com.google.firebase.firestore.Query;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PostProvider {
-
+public class RequestProvider {
     CollectionReference mCollection;
     DatabaseReference databaseReference;
 
-    public PostProvider() {
-        mCollection = FirebaseFirestore.getInstance().collection("Posts");
+    public RequestProvider() {
+        mCollection = FirebaseFirestore.getInstance().collection("Requests");
     }
 
-    public Task<Void> save(Post post) {
+    public Task<Void> save(Request post) {
         return mCollection.document().set(post);
     }
 
@@ -32,10 +32,10 @@ public class PostProvider {
     }
 
     public Query getPostByCategoryAndTimestamp(String category) {
-        return mCollection.whereEqualTo("category", category).orderBy("timestamp", Query.Direction.DESCENDING);
+        return mCollection.whereEqualTo("title", category).orderBy("timestamp", Query.Direction.DESCENDING);
     }
     public DatabaseReference getCategoryForSpinner() {
-        return databaseReference = FirebaseDatabase.getInstance().getReference("categories");
+        return databaseReference = FirebaseDatabase.getInstance().getReference("title");
     }
 
     public Query getPostByTitle(String title) {
@@ -46,15 +46,11 @@ public class PostProvider {
         return mCollection.whereEqualTo("idUser", id);
     }
 
-    public Task<Void> updatePost(@NonNull Post post) {
+    public Task<Void> updateRequest(@NonNull Request post) {
         Map<String, Object> map = new HashMap<>();
-        map.put("category", post.getPet());
-        map.put("description", post.getDescription());
-        map.put("image1", post.getImage1());
-        map.put("image2", post.getImage2());
-        map.put("quality", post.getQuality());
         map.put("title", post.getTitle());
-        map.put("expireTime", post.getExpireTime());
+        map.put("bio", post.getBio());
+        map.put("image1", post.getImageProfile());
         map.put("timestamp", post.getTimestamp());
         return mCollection.document(post.getId()).update(map);
     }
@@ -66,4 +62,5 @@ public class PostProvider {
     public Task<Void> delete(String id) {
         return mCollection.document(id).delete();
     }
+
 }

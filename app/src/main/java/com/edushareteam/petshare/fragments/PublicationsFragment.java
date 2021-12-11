@@ -1,66 +1,169 @@
 package com.edushareteam.petshare.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.edushareteam.petshare.R;
+import com.edushareteam.petshare.activities.AddProductActivity;
+import com.edushareteam.petshare.activities.AddPublicationsActivity;
+import com.edushareteam.petshare.activities.FavoriteActivity;
+import com.edushareteam.petshare.adapters.PostsAdapter;
+import com.edushareteam.petshare.adapters.PublicationsAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PublicationsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class PublicationsFragment extends Fragment {
+import com.edushareteam.petshare.databinding.FragmentPublicationsBinding;
+import com.edushareteam.petshare.models.Post;
+import com.edushareteam.petshare.models.Request;
+import com.edushareteam.petshare.providers.AuthProvider;
+import com.edushareteam.petshare.providers.PostProvider;
+import com.edushareteam.petshare.providers.RequestProvider;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.Query;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+public class PublicationsFragment extends Fragment implements MaterialSearchBar.OnSearchActionListener {
+
+    private FragmentPublicationsBinding binding;
+    AuthProvider mAuthProvider;
+    RequestProvider mPostProvider;
+    PublicationsAdapter mPostsAdapter;
+    PublicationsAdapter mPostsAdapterSearch;
 
     public PublicationsFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PublicationsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PublicationsFragment newInstance(String param1, String param2) {
-        PublicationsFragment fragment = new PublicationsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.main_menu,menu);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_publications, container, false);
+        binding = FragmentPublicationsBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+
+        setHasOptionsMenu(true);
+        binding.recyclerViewProducts.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
+        mAuthProvider = new AuthProvider();
+        mPostProvider = new RequestProvider();
+
+        binding.searchBar.setOnSearchActionListener(this);
+        binding.searchBar.inflateMenu(R.menu.main_menu);
+        binding.searchBar.setMenuIcon(R.drawable.img);
+        binding.searchBar.getMenu().setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (item.getItemId() == R.id.itemFav) {
+                    Intent intent = new Intent(getContext(), FavoriteActivity.class);
+                    startActivity(intent);
+
+                }
+                return true;
+            }
+        });
+
+        binding.fab.setOnClickListener(view1 -> goToPost());
+        return view;
+    }
+
+    private void searchByTitle(String title) {
+        Query query = mPostProvider.getPostByTitle(title);
+        FirestoreRecyclerOptions<Request> options =
+                new FirestoreRecyclerOptions.Builder<Request>()
+                        .setQuery(query, Request.class)
+                        .build();
+        mPostsAdapterSearch = new PublicationsAdapter(options, getContext());
+        mPostsAdapterSearch.notifyDataSetChanged();
+        binding.recyclerViewProducts.setAdapter(mPostsAdapterSearch);
+        mPostsAdapterSearch.startListening();
+    }
+
+    private void getAllPost() {
+        Query query = mPostProvider.getAll();
+        FirestoreRecyclerOptions<Request> options =
+                new FirestoreRecyclerOptions.Builder<Request>()
+                        .setQuery(query, Request.class)
+                        .build();
+        mPostsAdapter = new PublicationsAdapter(options, getContext());
+        mPostsAdapter.notifyDataSetChanged();
+        binding.recyclerViewProducts.setAdapter(mPostsAdapter);
+        mPostsAdapter.startListening();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        getAllPost();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mPostsAdapter.stopListening();
+        if (mPostsAdapterSearch != null) {
+            mPostsAdapterSearch.stopListening();
+        }
+    }
+
+    private void goToPost() {
+        Intent intent = new Intent(getContext(), AddPublicationsActivity.class);
+        startActivity(intent);
+    }
+
+    private void logout() {
+        mAuthProvider.logout();
+       /* Intent intent = new Intent(getContext(), IntroActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);*/
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mPostsAdapter.getListener() != null) {
+            mPostsAdapter.getListener().remove();
+        }
+    }
+
+    @Override
+    public void onSearchStateChanged(boolean enabled) {
+        if (!enabled) {
+            getAllPost();
+        }
+    }
+
+    @Override
+    public void onSearchConfirmed(CharSequence text) {
+        searchByTitle(text.toString());
+    }
+
+    @Override
+    public void onButtonClicked(int buttonCode) {
+
     }
 }
