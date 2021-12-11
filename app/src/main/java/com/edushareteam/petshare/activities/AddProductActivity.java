@@ -218,6 +218,7 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
         mDescription = Objects.requireNonNull(binding.textInputDescription.getText()).toString();
         mQuality = binding.ratingBarProductQualityUpload.getRating();
         mSpinnerCategories = binding.spinnerProductCategory.getSelectedItem().toString();
+        mSpinnerCities = binding.spinnerProductCity.getSelectedItem().toString();
         mPrice=binding.textInputPrice.getText().toString();
         if (!mTitle.isEmpty() && !mDescription.isEmpty()) {
             // GALERİDEN İKİ RESİM SEÇİYORUM
@@ -259,7 +260,7 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
                                 post.setDescription(mDescription);
                                 post.setPet(mSpinnerCategories);
                                 post.setPrice(mPrice);
-                                post.setLocation(mLocation);
+                                post.setLocation(mSpinnerCities);
                                 post.setExpireTime(currentDateString);
                                 post.setQuality((double) mQuality);
                                 post.setIdUser(mAuthProvider.getUid());
