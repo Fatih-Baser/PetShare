@@ -9,13 +9,14 @@ public class Post {
     private String image2;
     private String idUser;
     private String pet;
+    private String expireTime;
     private long timestamp;
 
     public Post(){
 
     }
 
-    public Post(String id, String title, String description, Double quality, String image1, String image2, String idUser, String pet, long timestamp) {
+    public Post(String id, String title, String description, Double quality, String image1, String image2, String idUser, String pet, String expireTime, long timestamp) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -24,7 +25,16 @@ public class Post {
         this.image2 = image2;
         this.idUser = idUser;
         this.pet = pet;
+        this.expireTime = expireTime;
         this.timestamp = timestamp;
+    }
+
+    public String getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(String expireTime) {
+        this.expireTime = expireTime;
     }
 
     public String getId() {

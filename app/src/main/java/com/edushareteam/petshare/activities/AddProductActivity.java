@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,10 +17,13 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.edushareteam.petshare.R;
 import com.edushareteam.petshare.databinding.ActivityAddProductBinding;
+import com.edushareteam.petshare.fragments.DataPickerFragment;
 import com.edushareteam.petshare.models.Post;
 import com.edushareteam.petshare.providers.AuthProvider;
 import com.edushareteam.petshare.providers.ImageProvider;
@@ -40,7 +45,10 @@ import java.util.UUID;
 
 import dmax.dialog.SpotsDialog;
 
-public class AddProductActivity extends AppCompatActivity {
+import java.text.DateFormat;
+import java.util.Calendar;
+
+public class AddProductActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private ActivityAddProductBinding binding;
     //Providers
@@ -48,6 +56,7 @@ public class AddProductActivity extends AppCompatActivity {
     PostProvider mPostProvider;
     AuthProvider mAuthProvider;
 
+    String currentDateString;
     File mImageFile;
     File mImageFile2;
 
@@ -101,6 +110,13 @@ public class AddProductActivity extends AppCompatActivity {
         mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
         options = new CharSequence[]{"Galeriden resim seç", "Fotograf çek"};
 
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePicker = new DataPickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
         binding.circleImageBack.setOnClickListener(view1 -> finish());
 
         binding.btnPost.setOnClickListener(view12 -> clickPost());
@@ -174,6 +190,7 @@ public class AddProductActivity extends AppCompatActivity {
         mDescription = Objects.requireNonNull(binding.textInputDescription.getText()).toString();
         mQuality = binding.ratingBarProductQualityUpload.getRating();
         mSpinnerCategories = binding.spinnerProductCategory.getSelectedItem().toString();
+
         if (!mTitle.isEmpty() && !mDescription.isEmpty()) {
             // GALERİDEN İKİ RESİM SEÇİYORUM
             if (mImageFile != null && mImageFile2 != null) {
@@ -213,6 +230,7 @@ public class AddProductActivity extends AppCompatActivity {
                                 post.setTitle(mTitle);
                                 post.setDescription(mDescription);
                                 post.setPet(mSpinnerCategories);
+                                post.setExpireTime(currentDateString);
                                 post.setQuality((double) mQuality);
                                 post.setIdUser(mAuthProvider.getUid());
                                 post.setTimestamp(new Date().getTime());
@@ -336,5 +354,24 @@ public class AddProductActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         ViewedMessageHelper.updateOnline(false, AddProductActivity.this);
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+
+        TextView textView = (TextView) findViewById(R.id.data);
+        textView.setText(currentDateString);
+    }
+
+
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }

@@ -158,6 +158,10 @@ public class ProductDetailActivity extends AppCompatActivity {
 
 
                 }
+                if (documentSnapshot.contains("expireTime")) {
+                    String description = documentSnapshot.getString("expireTime");
+                    binding.textviewData.setText(description);
+                }
                 if (documentSnapshot.contains("idUser")) {
                     mIdUser = documentSnapshot.getString("idUser");
                     getUserInfo(mIdUser);

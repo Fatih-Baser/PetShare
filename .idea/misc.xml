@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable/ic_person_pin.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/drawable/ic_send.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/action_bar_toolbar.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1503623188405797" />

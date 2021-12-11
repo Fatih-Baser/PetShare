@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,10 +17,13 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.edushareteam.petshare.R;
 import com.edushareteam.petshare.databinding.ActivityEditProductBinding;
+import com.edushareteam.petshare.fragments.DataPickerFragment;
 import com.edushareteam.petshare.models.Post;
 import com.edushareteam.petshare.providers.AuthProvider;
 import com.edushareteam.petshare.providers.ImageProvider;
@@ -36,13 +41,15 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
 import dmax.dialog.SpotsDialog;
 
-public class EditProductActivity extends AppCompatActivity {
+public class EditProductActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     private ActivityEditProductBinding binding;
     String mExtraPostId;
@@ -50,6 +57,7 @@ public class EditProductActivity extends AppCompatActivity {
     String mDescription = "";
     float mQuality = 0;
     String mSpinnerCategories = "";
+    String currentDateString;
 
     File mImageFile;
     File mImageFile2;
@@ -98,6 +106,14 @@ public class EditProductActivity extends AppCompatActivity {
         mPostProvider = new PostProvider();
         mAuthProvider = new AuthProvider();
 
+
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePicker = new DataPickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
         mDialog = new SpotsDialog.Builder()
                 .setContext(this)
                 .setMessage("Lütfen biraz bekleyiniz")
@@ -192,6 +208,10 @@ public class EditProductActivity extends AppCompatActivity {
                     Long quality = documentSnapshot.getLong("quality");
                     binding.ratingBarProductQualityUpload.setRating(quality);
                 }
+                if (documentSnapshot.contains("expireTime")) {
+                    String expireTime = documentSnapshot.getString("expireTime");
+                    binding.expireTime.setText(expireTime);
+                }
             }
         });
     }
@@ -200,6 +220,8 @@ public class EditProductActivity extends AppCompatActivity {
         mTitle = Objects.requireNonNull(binding.textInputTitle.getText()).toString();
         mDescription = Objects.requireNonNull(binding.textInputDescription.getText()).toString();
         mQuality = binding.ratingBarProductQualityUpload.getRating();
+
+        currentDateString=Objects.requireNonNull(binding.expireTime.getText()).toString();
         mSpinnerCategories = binding.spinnerProductCategory.getSelectedItem().toString();
         if (!mTitle.isEmpty() && !mDescription.isEmpty()) {
             // GALERİDEN İKİ RESİM SEÇİMI
@@ -230,6 +252,8 @@ public class EditProductActivity extends AppCompatActivity {
                 post.setImage1(mImage1);
                 post.setImage2(mImage2);
                 post.setDescription(mDescription);
+
+                post.setExpireTime(currentDateString);
                 post.setPet(mSpinnerCategories);
                 post.setId(mExtraPostId);
                 post.setQuality((double) mQuality);
@@ -263,6 +287,8 @@ public class EditProductActivity extends AppCompatActivity {
                                         post.setTitle(mTitle);
                                         post.setDescription(mDescription);
                                         post.setPet(mSpinnerCategories);
+
+                                        post.setExpireTime(currentDateString);
                                         post.setQuality((double) mQuality);
                                         post.setTimestamp(new Date().getTime());
                                         updatePost(post);
@@ -294,6 +320,7 @@ public class EditProductActivity extends AppCompatActivity {
                     post.setPet(mSpinnerCategories);
                     post.setQuality((double) mQuality);
                     post.setId(mExtraPostId);
+                    post.setExpireTime(currentDateString);
                     post.setTimestamp(new Date().getTime());
                     updatePost(post);
                     if (isProfileImage) {
@@ -429,5 +456,22 @@ public class EditProductActivity extends AppCompatActivity {
             mPhotoFile2 = new File(mAbsolutePhotoPath2);
             Picasso.with(EditProductActivity.this).load(mPhotoPath2).into(binding.imageViewPost2);
         }
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+
+        TextView textView = (TextView) findViewById(R.id.expireTime);
+        textView.setText(currentDateString);
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
