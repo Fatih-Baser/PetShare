@@ -229,16 +229,16 @@ public class ChatActivity extends AppCompatActivity {
     }
     private void goToShowProfile() {
         if (!mExtraIdUser1.equals(mAuthProvider.getUid())) {
-            /*Intent intent = new Intent(ChatActivity.this, UserProfileActivity.class);
+            Intent intent = new Intent(ChatActivity.this, UserProfileActivity.class);
             intent.putExtra("idUser", mExtraIdUser1);
             System.out.println(mExtraIdUser1+"idUser");
-            startActivity(intent);*/
+            startActivity(intent);
         }
         else if(!mExtraIdUser2.equals(mAuthProvider.getUid())){
-            /*Intent intent = new Intent(ChatActivity.this, UserProfileActivity.class);
+            Intent intent = new Intent(ChatActivity.this, UserProfileActivity.class);
             intent.putExtra("idUser", mExtraIdUser2);
             System.out.println(mExtraIdUser2+"idUser");
-            startActivity(intent);*/
+            startActivity(intent);
 
         }
         else {

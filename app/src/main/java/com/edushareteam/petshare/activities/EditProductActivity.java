@@ -94,6 +94,11 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
     ArrayAdapter<String> arrayAdapter;
     ArrayList<String> spinnerDataList;
 
+    //Spınner
+    ValueEventListener valueEventListenercities;
+    ArrayAdapter<String> arrayAdaptercities;
+    ArrayList<String> spinnerDataListcities;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -173,6 +178,28 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
             }
         });
     }
+    private void retrieveSpinnerDatacities() {
+        DatabaseReference databaseReference = mPostProvider.getCategoryForSpinner();
+        valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot item : snapshot.getChildren()) {
+                    spinnerDataList.add(Objects.requireNonNull(item.child("name").getValue()).toString());
+                    mPostProvider.getPostById(mExtraPostId).addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.contains("cities")) {
+                            String category = documentSnapshot.getString("cities");
+                            spinnerDataList.set(0,category);
+                            arrayAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
 
     private void getPost() {
         mPostProvider.getPostById(mExtraPostId).addOnSuccessListener(documentSnapshot -> {
@@ -198,7 +225,7 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                 if (documentSnapshot.contains("title")) {
                     String title = documentSnapshot.getString("title");
                     assert title != null;
-                    binding.textInputTitle.setText(title);
+                    binding.textInputVideoGame.setText(title);
                 }
                 if (documentSnapshot.contains("description")) {
                     String description = documentSnapshot.getString("description");
@@ -210,18 +237,18 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                 }
                 if (documentSnapshot.contains("expireTime")) {
                     String expireTime = documentSnapshot.getString("expireTime");
-                    binding.expireTime.setText(expireTime);
+                    binding.data.setText(expireTime);
                 }
             }
         });
     }
 
     private void clickEditPost() {
-        mTitle = Objects.requireNonNull(binding.textInputTitle.getText()).toString();
+        mTitle = Objects.requireNonNull(binding.textInputVideoGame.getText()).toString();
         mDescription = Objects.requireNonNull(binding.textInputDescription.getText()).toString();
         mQuality = binding.ratingBarProductQualityUpload.getRating();
 
-        currentDateString=Objects.requireNonNull(binding.expireTime.getText()).toString();
+        currentDateString=Objects.requireNonNull(binding.data.getText()).toString();
         mSpinnerCategories = binding.spinnerProductCategory.getSelectedItem().toString();
         if (!mTitle.isEmpty() && !mDescription.isEmpty()) {
             // GALERİDEN İKİ RESİM SEÇİMI
@@ -466,7 +493,7 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
 
-        TextView textView = (TextView) findViewById(R.id.expireTime);
+        TextView textView = (TextView) findViewById(R.id.data);
         textView.setText(currentDateString);
     }
 
