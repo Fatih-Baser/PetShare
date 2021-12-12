@@ -26,10 +26,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yayınlanan içerik sayısı:"
+                android:text="Number of published content"
                 android:textSize="16dp"
-                android:textStyle="italic"
-                />
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/textViewNumberFilter"

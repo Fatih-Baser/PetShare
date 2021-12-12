@@ -43,7 +43,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="15dp"
-
                         android:text="User Info"
                         android:textColor="@color/colorWhite"
                         android:textSize="24dp"
@@ -87,7 +86,7 @@
                         android:gravity="center"
                         android:layout_marginStart="25dp"
                         android:layout_marginEnd="25dp"
-                        android:text="Isim ve Soyisim"
+                        android:text="Name and surname"
                         android:textColor="@color/black"
                         android:textSize="24dp"
                         android:padding="10dp"
@@ -122,13 +121,11 @@
                             android:text="City"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="12dp"
-
                             app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.12"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
-
 
 
                         <TextView
@@ -137,9 +134,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:text="Email"
-
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="12dp"
+                            app:layout_constraintBottom_toTopOf="@+id/textViewBio"
                             app:layout_constraintStart_toStartOf="@+id/textViewCity"
                             app:layout_constraintTop_toBottomOf="@+id/textViewCity" />
 
@@ -188,7 +185,7 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                android:text="Ürünlerim"
+                android:text="My Products"
                 android:textSize="14dp" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -206,6 +203,7 @@
         android:id="@+id/fabChat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:src="@drawable/ic_chat"
         android:layout_gravity="bottom|right"
         android:layout_margin="15dp"

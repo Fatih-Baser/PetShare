@@ -13,7 +13,7 @@
         android:background="@color/colorAccent"
 
         android:gravity="center"
-        android:text="Mesajlar"
+        android:text="Messages"
         android:textColor="@color/white"
         android:textSize="24dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,18 +35,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="Görüşme sayısı:"
-            android:textSize="14dp" />
+            android:text="Number of calls:"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/textViewNumberMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-
             android:text="0"
-            android:textSize="14dp" />
+            android:textSize="16dp" />
 
     </LinearLayout>
 

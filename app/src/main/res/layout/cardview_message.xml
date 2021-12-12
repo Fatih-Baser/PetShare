@@ -27,9 +27,7 @@
             android:id="@+id/textViewMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-
-            android:text="Yeni mesaj"
+            android:text="New message"
             android:textColor="@color/colorWhite"
             android:textSize="15dp" />
 

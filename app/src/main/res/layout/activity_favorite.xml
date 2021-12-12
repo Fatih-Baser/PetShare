@@ -11,9 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorAccent"
-
         android:gravity="center"
-        android:text="Favorilerim"
+        android:text="My Publications"
         android:textColor="@color/white"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,18 +35,16 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="Beğenilen içerik sayısı:"
-            android:textSize="14dp" />
+            android:text="Number of published content:"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/textViewNumberOfFavoriteItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-
             android:text="0"
-            android:textSize="12dp" />
+            android:textSize="16dp" />
 
     </LinearLayout>
 

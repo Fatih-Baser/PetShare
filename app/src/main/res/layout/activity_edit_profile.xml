@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.EditProfileActivity">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#fa914e"
+        android:background="@color/colorAccent"
         android:transitionName="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +23,7 @@
         android:layout_height="35dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:src="@drawable/ic_arrow_back_white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,10 +31,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profil Düzenle"
+        android:text="Edit Profile"
         android:textColor="@color/white"
         android:textSize="24dp"
-
+        android:textStyle="bold"
         app:layout_anchorGravity="end|center"
         app:layout_constraintBottom_toBottomOf="@+id/circleImageBack"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,10 +47,11 @@
         android:layout_width="172dp"
         android:layout_height="172dp"
         android:layout_marginTop="112dp"
-        android:src="@drawable/ic_person_pin"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user_purple"
         app:civ_border_color="@color/colorWhite"
         app:civ_border_width="5dp"
-        app:civ_circle_background_color="@color/colorGray"
+        app:civ_circle_background_color="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -76,7 +76,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="5dp"
-                android:src="@drawable/ic_person_pin" />
+                android:src="@drawable/ic_baseline_person_24" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -86,9 +86,9 @@
                     android:id="@+id/textInputUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences"
+                    android:hint="Name and Surname"
 
-                    android:hint="İsim ve soyisim" />
+                    android:inputType="textCapSentences" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,16 +108,14 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/ic_person_pin" />
+                android:src="@drawable/ic_baseline_location_on_24" />
+
             <Spinner
                 android:id="@+id/spinner_product_category"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:spinnerMode="dropdown" />
-
-
         </LinearLayout>
-
 
 
         <LinearLayout
@@ -133,7 +131,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/ic_person_pin" />
+                android:src="@drawable/ic_description" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -143,10 +141,9 @@
                     android:id="@+id/textInputBio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="3"
-
+                    android:hint="Bio (140)"
                     android:maxLength="140"
-                    android:hint="Hakkımda (140 karakter)" />
+                    android:maxLines="4" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -159,10 +156,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-
         android:backgroundTint="@color/colorAccent"
-        android:text="Kaydet "
-
+        android:text="Save"
+        android:background="@drawable/shape_view_button_layout"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

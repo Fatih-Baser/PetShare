@@ -67,7 +67,7 @@ public class ProductsFragment extends Fragment implements MaterialSearchBar.OnSe
 
         binding.searchBar.setOnSearchActionListener(this);
         binding.searchBar.inflateMenu(R.menu.main_menu);
-        binding.searchBar.setMenuIcon(R.drawable.img);
+        binding.searchBar.setMenuIcon(R.drawable.bookmark);
         binding.searchBar.getMenu().setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {

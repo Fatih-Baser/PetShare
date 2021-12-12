@@ -10,9 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Şifre sıfırlama"
+        android:text="Reset Password"
         android:textSize="24dp"
-
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Lütfen e-posta adresini giriniz"
+        android:text="Please enter your e-mail address"
         android:textSize="12dp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
                 android:id="@+id/textInputEmailReset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="E-posta adresi"
+                android:hint="E-posta"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -68,8 +68,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-
-        android:text="Yenile"
+        android:background="@drawable/shape_view_button_layout"
+        android:text="Reset"
+        android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout2"

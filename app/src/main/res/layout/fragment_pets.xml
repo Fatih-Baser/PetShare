@@ -13,7 +13,6 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="24dp"
-
         android:background="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,10 +68,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
+                    android:textStyle="bold"
                     android:gravity="center"
                     android:text="Cats"
-                    android:textColor="#031239"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -111,7 +110,8 @@
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="Dogs"
-                    android:textColor="#031239"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -148,10 +148,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
+                    android:textStyle="bold"
                     android:gravity="center"
                     android:text="Birds"
-                    android:textColor="#031239"
+                    android:textColor= "@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -188,10 +188,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
+                    android:textStyle="bold"
                     android:gravity="center"
                     android:text="Rabbits"
-                    android:textColor="#031239"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -228,10 +228,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:text="Horses"
-                    android:textColor="#031239"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -268,10 +268,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
                     android:gravity="center"
                     android:text="Ferrets"
-                    android:textColor="#031239"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -308,10 +308,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
                     android:gravity="center"
                     android:text="Fish"
-                    android:textColor="#031239"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -348,10 +348,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
                     android:gravity="center"
                     android:text="Guinea Pigs"
-                    android:textColor="#031239"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -388,10 +388,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
                     android:gravity="center"
                     android:text="Rats and Mice"
-                    android:textColor="#031239"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -428,10 +428,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-
                     android:gravity="center"
                     android:text="Amphibians"
-                    android:textColor="#031239"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -470,7 +470,8 @@
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="Reptiles"
-                    android:textColor="#031239"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:textSize="18dp" />
 
             </LinearLayout>

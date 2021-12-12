@@ -17,7 +17,7 @@
             style="@style/MaterialSearchBarLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:mt_hint="Arama metni"
+            app:mt_hint="Search text"
             app:mt_placeholder="Products"
             app:mt_searchBarColor="@color/colorAccent"
             app:mt_maxSuggestionsCount="10"
@@ -52,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
+        android:backgroundTint="@color/colorAccent"
         android:layout_gravity="bottom|right"
         android:layout_margin="15dp" />
 

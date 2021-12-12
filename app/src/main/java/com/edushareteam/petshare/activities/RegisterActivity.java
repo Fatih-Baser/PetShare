@@ -1,10 +1,5 @@
 package com.edushareteam.petshare.activities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -19,7 +14,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-import com.edushareteam.petshare.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+
 import com.edushareteam.petshare.databinding.ActivityRegisterBinding;
 import com.edushareteam.petshare.models.User;
 import com.edushareteam.petshare.providers.AuthProvider;
@@ -85,14 +84,14 @@ public class RegisterActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         //Providers
-        databaseReference = FirebaseDatabase.getInstance().getReference("categories");
+        databaseReference = FirebaseDatabase.getInstance().getReference("cities");
         mAuthProvider = new AuthProvider();
         mImageProvider = new ImageProvider();
         mUsersProvider = new UsersProvider();
 
         mBuilderSelector = new AlertDialog.Builder(this);
         mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
-        options = new CharSequence[] {"Galeriden resim seç","Fotoğraf çek"};
+        options = new CharSequence[]{"Galeriden resim seç", "Fotoğraf çek"};
 
         spinnerDataList = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(RegisterActivity.this,
@@ -109,18 +108,24 @@ public class RegisterActivity extends AppCompatActivity {
 
         binding.btnRegister.setOnClickListener(view12 -> register());
 
+        binding.back.setOnClickListener(view13 -> {
+            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
+
     }
     private void retrieveData() {
 
         valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot item :snapshot.getChildren()){
+                for (DataSnapshot item : snapshot.getChildren()) {
                     spinnerDataList.add(item.child("name").getValue().toString());
                 }
                 arrayAdapter.notifyDataSetChanged();
 
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
@@ -137,12 +142,12 @@ public class RegisterActivity extends AppCompatActivity {
         String password = Objects.requireNonNull(binding.textInputPassword.getText()).toString();
         String confirmPassword = Objects.requireNonNull(binding.textInputConfirmPassword.getText()).toString();
 
-        if (mImageFile != null ) {
-            if (!username.isEmpty() && !email.isEmpty() && !password.isEmpty() && !city.isEmpty() && !bio.isEmpty() && !confirmPassword.isEmpty()&&mImageFile != null) {
+        if (mImageFile != null) {
+            if (!username.isEmpty() && !email.isEmpty() && !password.isEmpty() && !city.isEmpty() && !bio.isEmpty() && !confirmPassword.isEmpty() && mImageFile != null) {
                 if (isEmailValid(email)) {
                     if (password.equals(confirmPassword)) {
                         if (password.length() >= 6) {
-                            createUser(username, email, password, city,  bio,mImageFile);
+                            createUser(username, email, password, city, bio, mImageFile);
                         } else {
                             Toast.makeText(this, "Şifreniz en az 6 karakter olmalıdır", Toast.LENGTH_SHORT).show();
                         }
@@ -155,13 +160,12 @@ public class RegisterActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Devam etmek için tüm alanları ekleyiniz", Toast.LENGTH_SHORT).show();
             }
-        }
-        else if (mPhotoFile != null ) {
-            if (!username.isEmpty() && !email.isEmpty() && !password.isEmpty() && !city.isEmpty() && !bio.isEmpty() && !confirmPassword.isEmpty()&&mPhotoFile != null) {
+        } else if (mPhotoFile != null) {
+            if (!username.isEmpty() && !email.isEmpty() && !password.isEmpty() && !city.isEmpty() && !bio.isEmpty() && !confirmPassword.isEmpty() && mPhotoFile != null) {
                 if (isEmailValid(email)) {
                     if (password.equals(confirmPassword)) {
                         if (password.length() >= 6) {
-                            createUser(username, email, password, city, bio,mPhotoFile);
+                            createUser(username, email, password, city, bio, mPhotoFile);
                         } else {
                             Toast.makeText(this, "Şifreniz en az 6 karakter olmalıdır", Toast.LENGTH_SHORT).show();
                         }
@@ -178,7 +182,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void createUser(final String username, final String email, final String password, String city, final String bio,File imageFile1) {
+    private void createUser(final String username, final String email, final String password, String city, final String bio, File imageFile1) {
         mDialog.show();
         mAuthProvider.register(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -192,7 +196,7 @@ public class RegisterActivity extends AppCompatActivity {
                     mDialog.dismiss();
                     if (task1.isSuccessful()) {
                         mImageProvider.save(RegisterActivity.this, imageFile1).addOnCompleteListener(task11 -> {
-                            if (task11.isSuccessful()){
+                            if (task11.isSuccessful()) {
                                 mImageProvider.getStorage().getDownloadUrl().addOnSuccessListener(uri -> {
                                     User user1 = new User();
                                     final String urlProfile = uri.toString();
@@ -209,8 +213,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             startActivity(intent);
-                                        }
-                                        else {
+                                        } else {
                                             Toast.makeText(RegisterActivity.this, "Kullanıcı veritabanında saklanamadı", Toast.LENGTH_SHORT).show();
                                         }
                                     });
@@ -236,7 +239,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-
     private void selectOptionImage(final int numberImage) {
 
         mBuilderSelector.setItems(options, new DialogInterface.OnClickListener() {
@@ -246,8 +248,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (numberImage == 1) {
                         openGallery(GALLERY_REQUEST_CODE_PROFILE);
                     }
-                }
-                else if (i == 1){
+                } else if (i == 1) {
                     if (numberImage == 1) {
                         takePhoto(PHOTO_REQUEST_CODE_PROFILE);
                     }
@@ -264,7 +265,7 @@ public class RegisterActivity extends AppCompatActivity {
             File photoFile = null;
             try {
                 photoFile = createPhotoFile(requestCode);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Toast.makeText(this, "Dosyada bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
 
@@ -307,7 +308,7 @@ public class RegisterActivity extends AppCompatActivity {
                 mPhotoFile = null;
                 mImageFile = FileUtil.from(this, data.getData());
                 binding.imageViewProfile.setImageBitmap(BitmapFactory.decodeFile(mImageFile.getAbsolutePath()));
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Log.d("ERROR", "Bir hata oluştu" + e.getMessage());
                 Toast.makeText(this, "Bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
@@ -322,6 +323,7 @@ public class RegisterActivity extends AppCompatActivity {
             Picasso.with(RegisterActivity.this).load(mPhotoPath).into(binding.imageViewProfile);
         }
     }
+
     @Override
     public void onStart() {
         super.onStart();

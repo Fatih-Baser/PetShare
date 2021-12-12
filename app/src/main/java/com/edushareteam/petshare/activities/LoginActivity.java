@@ -24,10 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
     AuthProvider mAuthProvider;
     UsersProvider mUsersProvider;
-    //    private GoogleSignInClient mGoogleSignInClient;
     AlertDialog mDialog;
-    //private static final String TAG = "GoogleActivity";
-    //private static final int RC_SIGN_IN = 9001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +44,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
         binding.btnLogin.setOnClickListener(view1 -> login());
+
+        binding.back.setOnClickListener(view14 -> {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
 
         binding.textViewReset.setOnClickListener(view13 -> {
             final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view13.getContext());

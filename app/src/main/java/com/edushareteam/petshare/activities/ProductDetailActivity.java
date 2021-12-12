@@ -76,10 +76,10 @@ public class ProductDetailActivity extends AppCompatActivity {
         mNotificationProvider = new NotificationProvider();
 
         getPost();
-        //binding.btnShowProfile.setOnClickListener(view1 -> goToShowProfile());
-
+        binding.constraintLayoutProductDetail.setOnClickListener(view1 -> goToShowProfile());
         // getNumberLikes();
         mExtraTitle = getIntent().getStringExtra("title");
+
         binding.chat.setOnClickListener(view12 -> goToChatActivity());
 
     }

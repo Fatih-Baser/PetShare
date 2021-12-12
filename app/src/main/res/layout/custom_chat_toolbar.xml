@@ -23,7 +23,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/ic_person_pin"
+        android:src="@drawable/ic_baseline_person_outline_24"
         app:civ_circle_background_color="@color/colorGray"
 
         app:layout_constraintBottom_toBottomOf="@+id/imageViewBack"
@@ -38,7 +38,7 @@
         android:layout_marginStart="8dp"
         android:layout_toRightOf="@+id/circleImageProfile"
         android:maxLines="1"
-        android:text="Kullanıcı ismi"
+        android:text="Username"
         android:layout_marginEnd="20dp"
         android:maxLength="18"
         android:textColor="@color/colorWhite"

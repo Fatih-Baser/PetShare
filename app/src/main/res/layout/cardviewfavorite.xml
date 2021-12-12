@@ -24,7 +24,7 @@
                 android:layout_width="160dp"
                 android:layout_height="147dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img"
+                android:src="@drawable/turtle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -51,7 +51,8 @@
                 android:ellipsize="end"
 
                 android:maxLines="1"
-                android:text="Ürün Başlığı"
+                android:text="Title"
+                android:textStyle="bold"
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toTopOf="@+id/cardView3"

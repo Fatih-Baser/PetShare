@@ -5,17 +5,20 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".activities.RegisterActivity">
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior ="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/back"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
@@ -25,9 +28,9 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                app:cardCornerRadius="360dp"
                 android:layout_gravity="top|center"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="360dp">
 
                 <ImageView
                     android:id="@+id/imageViewProfile"
@@ -36,8 +39,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/ic_baseline_person_24"
                     app:civ_border_color="@color/white"
-                    app:civ_border_width="3dp"
-                    />
+                    app:civ_border_width="3dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -64,9 +66,8 @@
                         android:id="@+id/textInputUsername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapSentences"
-                        android:hint="İsim ve soyisim"
-                        />
+                        android:hint="Name and surname"
+                        android:inputType="textCapSentences" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,7 +97,7 @@
                         android:id="@+id/textInputEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="E-posta adresi"
+                        android:hint="E-posta"
                         android:inputType="textEmailAddress" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -118,17 +119,17 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="5dp"
                     android:src="@drawable/ic_baseline_location_on_24" />
+
                 <Spinner
                     android:id="@+id/spinner_product_category"
                     android:layout_width="match_parent"
-                    android:paddingTop="10dp"
                     android:layout_height="match_parent"
+                    android:paddingTop="10dp"
 
                     android:spinnerMode="dropdown" />
 
 
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -153,9 +154,9 @@
                         android:id="@+id/bio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="140"
-                        android:hint="Hakkında (140 karakter)"
-                        android:inputType="text" />
+                        android:hint="Bio (140)"
+                        android:inputType="text"
+                        android:maxLength="140" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,7 +186,7 @@
                         android:id="@+id/textInputPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Şifre"
+                        android:hint="Password"
                         android:inputType="textPassword" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -216,24 +217,24 @@
                         android:id="@+id/textInputConfirmPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Tekrar şifre"
+                        android:hint="Password again"
                         android:inputType="textPassword" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
 
             </LinearLayout>
+
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_margin="20dp"
-
-
-                android:text="KAyıt ol"
-               />
-
+                android:background="@drawable/shape_view_button_layout"
+                android:text="Create Account"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
 
         </LinearLayout>

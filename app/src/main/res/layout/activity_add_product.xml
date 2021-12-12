@@ -42,7 +42,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                    android:src="@drawable/ic_arrow_back_white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,6 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Share Product"
+                    android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="24dp"
                     app:layout_anchorGravity="end|center"
@@ -145,6 +146,14 @@
                 android:orientation="vertical"
                 android:padding="8dp">
 
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:gravity="left"
+                    android:text="Please choose one"
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
+
                 <RadioGroup
                     android:id="@+id/radioGroup"
                     android:layout_width="wrap_content"
@@ -155,16 +164,16 @@
                     <RadioButton
                         android:id="@+id/radio_Free"
                         android:layout_width="wrap_content"
+
                         android:layout_height="wrap_content"
-                        android:text="Free" />
+                        android:text="Donation" />
 
                     <RadioButton
                         android:id="@+id/radio_Price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="Price" />
-
+                        android:text="Selling" />
 
                 </RadioGroup>
 
@@ -186,7 +195,8 @@
                     android:layout_height="25dp"
                     android:gravity="left"
                     android:text="Price"
-                    android:textSize="15dp" />
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputPrice"
@@ -209,7 +219,8 @@
                     android:layout_height="25dp"
                     android:gravity="left"
                     android:text="Title"
-                    android:textSize="15dp" />
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputVideoGame"
@@ -232,7 +243,8 @@
                     android:layout_height="25dp"
                     android:gravity="left"
                     android:text="Categories"
-                    android:textSize="15dp" />
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
 
                 <Spinner
                     android:id="@+id/spinner_product_category"
@@ -255,7 +267,8 @@
                     android:layout_height="25dp"
                     android:gravity="left"
                     android:text="Cities"
-                    android:textSize="15dp" />
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
 
                 <Spinner
                     android:id="@+id/spinner_product_city"
@@ -279,7 +292,8 @@
                     android:layout_height="25dp"
                     android:gravity="left"
                     android:text="Description"
-                    android:textSize="15dp" />
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputDescription"
@@ -302,8 +316,6 @@
                     android:id="@+id/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
                     android:text="open date picker" />
 
 
@@ -328,7 +340,8 @@
                     android:layout_height="25dp"
                     android:gravity="left"
                     android:text="Quality"
-                    android:textSize="15dp" />
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
 
                 <RatingBar
                     android:id="@+id/ratingBar_product_quality_upload"
