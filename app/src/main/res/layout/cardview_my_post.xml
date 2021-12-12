@@ -39,7 +39,7 @@
             android:id="@+id/constraintLayoutPostCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#C60077"
+            android:background="#5E47127F"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -56,8 +56,8 @@
                 android:textStyle="bold"
                 android:maxLines="1"
                 android:text="Product"
-                android:textColor="@color/white"
-                android:textSize="14dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,10 +67,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
-                android:textStyle="bold"
                 android:text="Category"
-                android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="17dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTitleMyPost" />
@@ -81,7 +80,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginEnd="7dp"
-                android:src="@drawable/ic_baseline_edit_24_white"
+                android:src="@drawable/ic_baseline_edit_24"
                 app:layout_constraintBottom_toBottomOf="@+id/textViewRelativeTimeMyPost"
                 app:layout_constraintEnd_toStartOf="@+id/imageViewDeleteMyPost"
                 app:layout_constraintTop_toTopOf="@+id/textViewTitleMyPost" />

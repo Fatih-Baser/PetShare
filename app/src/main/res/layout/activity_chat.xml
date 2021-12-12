@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="55dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/chatback" />
+        android:src="@drawable/wallpaper" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -41,28 +41,23 @@
             android:id="@+id/editTextMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="1dp"
             android:background="@drawable/custom_edittext_chat"
             android:hint="Type here..."
-            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:inputType="textMultiLine"
             android:padding="10dp"
-            android:textColorHint="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            android:layout_weight="1"/>
 
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/imageViewSendMessage"
             android:layout_width="45dp"
-            android:layout_height="47dp"
-            android:layout_gravity="right"
+            android:layout_height="45dp"
             app:cardCornerRadius="360dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp">
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/colorAccent">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -71,6 +66,6 @@
                 android:src="@drawable/ic_send" />
 
         </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
