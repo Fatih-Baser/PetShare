@@ -162,7 +162,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                     binding.textViewPrice.setText(price);
                     switch (price) {
                         case "0":
-                            binding.imageViewValue.setImageResource(R.drawable.heart_b);
+                            binding.imageViewValue.setImageResource(R.drawable.heart_c);
                             break;
 
 

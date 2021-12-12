@@ -91,11 +91,11 @@ public class MyPostsAdapter extends FirestoreRecyclerAdapter<Post, MyPostsAdapte
         });
 
         holder.imageViewDelete.setOnClickListener(view -> showConfirmDelete(postId));
-        holder.imageViewEdit.setOnClickListener(view -> {
+       /* holder.imageViewEdit.setOnClickListener(view -> {
             Intent intent =  new Intent(context, EditProductActivity.class);
             intent.putExtra("id",postId);
             context.startActivity(intent);
-        });
+        });*/
     }
 
     private void showConfirmDelete(final String postId) {
@@ -140,7 +140,7 @@ public class MyPostsAdapter extends FirestoreRecyclerAdapter<Post, MyPostsAdapte
             textViewRelativeTime = view.findViewById(R.id.textViewRelativeTimeMyPost);
             circleImagePost = view.findViewById(R.id.circleImageMyPost);
             imageViewDelete = view.findViewById(R.id.imageViewDeleteMyPost);
-            imageViewEdit = view.findViewById(R.id.imageViewEditMyPost);
+            //imageViewEdit = view.findViewById(R.id.imageViewEditMyPost);
             bar = view.findViewById(R.id.postLoading);
             viewHolder = view;
         }

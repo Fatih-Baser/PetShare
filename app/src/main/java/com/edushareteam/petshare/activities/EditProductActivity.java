@@ -57,8 +57,10 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
     String mDescription = "";
     float mQuality = 0;
     String mSpinnerCategories = "";
+    String mSpinnerCities = "";
     String currentDateString;
 
+    String mPrice = "";
     File mImageFile;
     File mImageFile2;
 
@@ -150,7 +152,13 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
         arrayAdapter = new ArrayAdapter<>(EditProductActivity.this,
                 android.R.layout.simple_spinner_dropdown_item, spinnerDataList);
         binding.spinnerProductCategory.setAdapter(arrayAdapter);
+
+        spinnerDataListcities = new ArrayList<>();
+        arrayAdaptercities = new ArrayAdapter<>(EditProductActivity.this,
+                android.R.layout.simple_spinner_dropdown_item, spinnerDataList);
+        binding.spinnerProductCity.setAdapter(arrayAdaptercities);
         retrieveSpinnerData();
+        retrieveSpinnerDatacities();
 
         getPost();
 
@@ -178,6 +186,8 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
             }
         });
     }
+
+
     private void retrieveSpinnerDatacities() {
         DatabaseReference databaseReference = mPostProvider.getCategoryForSpinner();
         valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
@@ -231,6 +241,7 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                     String description = documentSnapshot.getString("description");
                     binding.textInputDescription.setText(description);
                 }
+
                 if (documentSnapshot.contains("quality")) {
                     Long quality = documentSnapshot.getLong("quality");
                     binding.ratingBarProductQualityUpload.setRating(quality);
@@ -238,6 +249,10 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                 if (documentSnapshot.contains("expireTime")) {
                     String expireTime = documentSnapshot.getString("expireTime");
                     binding.data.setText(expireTime);
+                }
+                if (documentSnapshot.contains("price")) {
+                    String price = documentSnapshot.getString("price");
+                    binding.textInputPrice.setText(price);
                 }
             }
         });
@@ -248,6 +263,8 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
         mDescription = Objects.requireNonNull(binding.textInputDescription.getText()).toString();
         mQuality = binding.ratingBarProductQualityUpload.getRating();
 
+        mPrice=binding.textInputPrice.getText().toString();
+        mSpinnerCities=binding.spinnerProductCity.getSelectedItem().toString();
         currentDateString=Objects.requireNonNull(binding.data.getText()).toString();
         mSpinnerCategories = binding.spinnerProductCategory.getSelectedItem().toString();
         if (!mTitle.isEmpty() && !mDescription.isEmpty()) {
@@ -280,6 +297,8 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                 post.setImage2(mImage2);
                 post.setDescription(mDescription);
 
+                post.setLocation(mSpinnerCities);
+                post.setPrice(mPrice);
                 post.setExpireTime(currentDateString);
                 post.setPet(mSpinnerCategories);
                 post.setId(mExtraPostId);
@@ -314,7 +333,8 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                                         post.setTitle(mTitle);
                                         post.setDescription(mDescription);
                                         post.setPet(mSpinnerCategories);
-
+                                        post.setLocation(mSpinnerCities);
+                                        post.setPrice(mPrice);
                                         post.setExpireTime(currentDateString);
                                         post.setQuality((double) mQuality);
                                         post.setTimestamp(new Date().getTime());
@@ -345,6 +365,8 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                     post.setTitle(mTitle);
                     post.setDescription(mDescription);
                     post.setPet(mSpinnerCategories);
+                    post.setLocation(mSpinnerCities);
+                    post.setPrice(mPrice);
                     post.setQuality((double) mQuality);
                     post.setId(mExtraPostId);
                     post.setExpireTime(currentDateString);
