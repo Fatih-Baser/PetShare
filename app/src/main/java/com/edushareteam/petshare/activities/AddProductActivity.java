@@ -121,6 +121,7 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
                 switch (i){
                     case R.id.radio_Free:
                         binding.linerPrice.setVisibility(View.GONE);
+                        binding.textInputPrice.setText("0");
                         break;
                     case R.id.radio_Price:
                         binding.linerPrice.setVisibility(View.VISIBLE);
@@ -259,6 +260,7 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
                                 post.setTitle(mTitle);
                                 post.setDescription(mDescription);
                                 post.setPet(mSpinnerCategories);
+
                                 post.setPrice(mPrice);
                                 post.setLocation(mSpinnerCities);
                                 post.setExpireTime(currentDateString);

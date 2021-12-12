@@ -267,6 +267,15 @@
                 android:fontFamily="@font/gudea"
                 android:textColor="@color/colorBlack"
                 android:textSize="18dp" />
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="25dp"
+                android:text="" />
 
             <View
                 android:layout_width="match_parent"
@@ -286,6 +295,15 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="18dp"
                 android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textViewLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="25dp"
+                android:text="" />
 
             <View
                 android:layout_width="match_parent"

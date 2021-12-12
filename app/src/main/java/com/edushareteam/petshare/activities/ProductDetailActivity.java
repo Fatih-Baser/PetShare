@@ -134,6 +134,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                     item.setImageUrl(image1);
                     mSliderItems.add(item);
                 }
+
                 if (documentSnapshot.contains("image2")) {
                     String image2 = documentSnapshot.getString("image2");
                     SliderItem item = new SliderItem();
@@ -151,6 +152,22 @@ public class ProductDetailActivity extends AppCompatActivity {
                 if (documentSnapshot.contains("description")) {
                     String description = documentSnapshot.getString("description");
                     binding.textViewDescription.setText(description);
+                }
+                if (documentSnapshot.contains("location")) {
+                    String location = documentSnapshot.getString("location");
+                    binding.textViewLocation.setText(location);
+                }
+                if (documentSnapshot.contains("price")) {
+                    String price = documentSnapshot.getString("price");
+                    binding.textViewPrice.setText(price);
+                    switch (price) {
+                        case "0":
+                            binding.imageViewValue.setImageResource(R.drawable.heart_b);
+                            break;
+
+
+                    }
+
                 }
                 if (documentSnapshot.contains("pet")) {
                     String category = documentSnapshot.getString("pet");

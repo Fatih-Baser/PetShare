@@ -52,6 +52,16 @@ public class FavoriteAdapter extends FirestoreRecyclerAdapter<Like, FavoriteAdap
             mTextViewNumberOfFavoriteItem.setText(String.valueOf(numberFilter));
         }
 
+
+
+        switch (like.getPrice()) {
+            case "0":
+                holder.imageViewValue.setImageResource(R.drawable.heart_c);
+                break;
+
+
+        }
+
         switch (like.getCategory()) {
             case "Cats":
                 holder.imageViewPet.setImageResource(R.drawable.cat);
@@ -134,6 +144,7 @@ public class FavoriteAdapter extends FirestoreRecyclerAdapter<Like, FavoriteAdap
 
         ImageView imageViewPost;
 
+        ImageView imageViewValue;
         ImageView imageViewPet;
         ImageView delete;
         View viewHolder;
@@ -146,6 +157,7 @@ public class FavoriteAdapter extends FirestoreRecyclerAdapter<Like, FavoriteAdap
             delete = view.findViewById(R.id.imageViewLike);
             imageViewPost = view.findViewById(R.id.imageViewPostCard);
 
+            imageViewValue=view.findViewById(R.id.imageViewValue);
             imageViewPet=view.findViewById(R.id.imageViewPets);
             bar = view.findViewById(R.id.postLoading);
             viewHolder = view;

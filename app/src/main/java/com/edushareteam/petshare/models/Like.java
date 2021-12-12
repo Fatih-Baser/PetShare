@@ -7,6 +7,7 @@ public class Like {
     private String idUser;
     private long timestamp;
     private String title;
+    private String price;
     private String image;
     private String category;
 
@@ -14,14 +15,24 @@ public class Like {
 
     }
 
-    public Like(String id, String idPost, String idUser, long timestamp, String title, String image, String category) {
+    public Like(String id, String idPost, String idUser, long timestamp, String title, String price, String image, String category) {
         this.id = id;
         this.idPost = idPost;
         this.idUser = idUser;
         this.timestamp = timestamp;
-        this.title=title;
-        this.image=image;
-        this.category=category;
+        this.title = title;
+        this.price = price;
+        this.image = image;
+        this.category = category;
+    }
+
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getImage() {

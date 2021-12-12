@@ -88,6 +88,16 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
                 });
             }
         }
+        holder.price.setText(post.getPrice());
+        switch (post.getPrice()) {
+            case "0":
+                holder.imageviewvalue.setImageResource(R.drawable.heart_c);
+                break;
+
+
+        }
+
+
         holder.pet.setText(post.getPet());
         switch (post.getPet()) {
             case "Cats":
@@ -138,6 +148,7 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
             like.setTitle(post.getTitle());
             like.setCategory(post.getPet());
             like.setImage(post.getImage1());
+            like.setPrice(post.getPrice());
             like.setTimestamp(new Date().getTime());
             like(like, holder);
         });
@@ -202,7 +213,9 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle;
         TextView pet;
+        TextView price;
         ImageView imageViewPost;
+        ImageView imageviewvalue;
         ImageView imageViewLike;
         ImageView imageviewPets;
         View viewHolder;
@@ -213,9 +226,11 @@ public class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.Vi
             textViewTitle = view.findViewById(R.id.textViewTitlePostCard);
            // textViewLikes = view.findViewById(R.id.textViewLikes);
             imageViewPost = view.findViewById(R.id.imageViewPostCard);
+            imageviewvalue = view.findViewById(R.id.imageViewValue);
             imageviewPets=view.findViewById(R.id.imageViewPets);
             imageViewLike = view.findViewById(R.id.imageViewLike);
             pet=view.findViewById(R.id.pet);
+            price=view.findViewById(R.id.price);
             bar = view.findViewById(R.id.postLoading);
             viewHolder = view;
         }
