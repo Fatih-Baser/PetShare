@@ -91,7 +91,7 @@ public class MyPublicationAdapter extends FirestoreRecyclerAdapter<Request, MyPu
         new AlertDialog.Builder(context)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Gönderiyi sil")
-                .setMessage("Bu eylemi gerçekleştireceğinizden emin misiniz?")
+                .setMessage("Are you sure you will perform this action?")
                 .setPositiveButton("Evet", (dialogInterface, i) -> deletePost(postId))
                 .setNegativeButton("Hayir", null)
                 .show();
@@ -102,7 +102,7 @@ public class MyPublicationAdapter extends FirestoreRecyclerAdapter<Request, MyPu
             if (task.isSuccessful()) {
                 Toast.makeText(context, "Yayın başarıyla kaldırıldı", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(context, "Gönderi silinemedi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Could not delete post", Toast.LENGTH_SHORT).show();
             }
         });
     }

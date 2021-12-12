@@ -196,7 +196,7 @@ public class ChatActivity extends AppCompatActivity {
                     getToken(message);
                 }
                 else {
-                    Toast.makeText(ChatActivity.this, "Mesaj oluşturulamadı", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChatActivity.this, "Message could not be created ", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -343,7 +343,7 @@ public class ChatActivity extends AppCompatActivity {
                 }
             }
             else {
-                Toast.makeText(ChatActivity.this, "Kullanıcı talepleri belirteci mevcut değil", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChatActivity.this, "User claims token does not exist", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -385,10 +385,10 @@ public class ChatActivity extends AppCompatActivity {
         data.put("idChat", message.getIdChat());
 
         if (mImageSender.equals("")) {
-            mImageSender = "IMAGEN_NO_VALIDA";
+            mImageSender = "IMAGE_NO_VALID";
         }
         if (mImageReceiver.equals("")) {
-            mImageReceiver = "IMAGEN_NO_VALIDA";
+            mImageReceiver = "IMAGE_NO_VALID";
         }
 
         data.put("imageSender", mImageSender);
@@ -417,11 +417,11 @@ public class ChatActivity extends AppCompatActivity {
                         if (response.body().getSuccess() == 1) {
                             //Toast.makeText(ChatActivity.this, "Bildirim başarıyla gönderildi", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(ChatActivity.this, "Bildirim gönderilemedi", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChatActivity.this, "Notification could not be sent", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else {
-                        Toast.makeText(ChatActivity.this, "Bildirim gönderilemedi", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ChatActivity.this, "Notification could not be sent", Toast.LENGTH_SHORT).show();
                     }
                 }
 

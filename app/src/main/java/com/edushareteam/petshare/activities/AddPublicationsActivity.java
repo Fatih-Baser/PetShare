@@ -69,12 +69,12 @@ public class AddPublicationsActivity extends AppCompatActivity {
         });
         mDialog = new SpotsDialog.Builder()
                 .setContext(this)
-                .setMessage("Biraz bekle ")
+                .setMessage("Please wait ")
                 .setCancelable(false).build();
 
         mBuilderSelector = new AlertDialog.Builder(this);
-        mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
-        options = new CharSequence[]{"Galeriden resim seç", "Fotograf çek"};
+        mBuilderSelector.setTitle("Please select an option");
+        options = new CharSequence[]{"Choose image from gallery", "Take a picture"};
 
 
         binding.btnPost.setOnClickListener(view12 -> clickPost());
@@ -104,13 +104,13 @@ public class AddPublicationsActivity extends AppCompatActivity {
             mDialog.dismiss();
             if (taskSave.isSuccessful()) {
                 // clearForm();
-                Toast.makeText(AddPublicationsActivity.this, "Bilgiler doğru bir şekilde saklandı", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddPublicationsActivity.this, "Information has stored properly", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AddPublicationsActivity.this, HomeActivity.class);
 
                 startActivity(intent);
 
             } else {
-                Toast.makeText(AddPublicationsActivity.this, "Bilgiler saklanamadı", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddPublicationsActivity.this, "Information could not stored yet", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -79,8 +79,8 @@ public class EditProfileActivity extends AppCompatActivity {
         setContentView(view);
 
         mBuilderSelector = new AlertDialog.Builder(this);
-        mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
-        options = new CharSequence[] {"Galeriden resim seç ","Fotoğraf çek"};
+        mBuilderSelector.setTitle("Please select an option");
+        options = new CharSequence[] {"Choose picture from gallery ","Take photo"};
         databaseReference = FirebaseDatabase.getInstance().getReference("cities");
 
         mImageProvider = new ImageProvider();
@@ -97,7 +97,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         mDialog = new SpotsDialog.Builder()
                 .setContext(this)
-                .setMessage("Biraz bekle")
+                .setMessage("Please wait")
                 .setCancelable(false).build();
         binding.btnEditProfile.setOnClickListener(view13 -> clickEditProfile());
 
@@ -190,7 +190,7 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         }
         else {
-            Toast.makeText(this, "Kullanıcı adını ve diğer bılgileri giriniz", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Enter username and other information", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -212,7 +212,7 @@ public class EditProfileActivity extends AppCompatActivity {
             }
             else {
                 mDialog.dismiss();
-                Toast.makeText(EditProfileActivity.this, "Görüntü kaydedilirken bir hata oluştu", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditProfileActivity.this, "An error occurred while saving the image", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -240,7 +240,7 @@ public class EditProfileActivity extends AppCompatActivity {
             }
             else {
                 mDialog.dismiss();
-                Toast.makeText(EditProfileActivity.this, "Görüntü kaydedilirken bir hata oluştu", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditProfileActivity.this, "An error occurred while saving the image", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -252,10 +252,10 @@ public class EditProfileActivity extends AppCompatActivity {
         mUsersProvider.updateProfile(user).addOnCompleteListener(task -> {
             mDialog.dismiss();
             if (task.isSuccessful()) {
-                Toast.makeText(EditProfileActivity.this, "Bilgiler doğru bir şekilde güncellendi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfileActivity.this, "Information updated correctly", Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(EditProfileActivity.this, "Bilgiler güncellenemedi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfileActivity.this, "Could not update information", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -328,8 +328,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 mImageFile = FileUtil.from(this, data.getData());
                 binding.circleImageProfile.setImageBitmap(BitmapFactory.decodeFile(mImageFile.getAbsolutePath()));
             } catch(Exception e) {
-                Log.d("ERROR", "Bir hata oluştu" + e.getMessage());
-                Toast.makeText(this, "Bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("ERROR", "Something went wrong" + e.getMessage());
+                Toast.makeText(this, "Something went wrong " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
 

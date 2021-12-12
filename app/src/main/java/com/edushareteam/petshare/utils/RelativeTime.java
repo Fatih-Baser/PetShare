@@ -27,19 +27,19 @@ public class RelativeTime extends Application {
 
         final long diff = now - time;
         if (diff < MINUTE_MILLIS) {
-            return "Az Önce";
+            return "Just now";
         } else if (diff < 2 * MINUTE_MILLIS) {
-            return "Bir dakika önce";
+            return "one minute önce";
         } else if (diff < 50 * MINUTE_MILLIS) {
-            return  diff / MINUTE_MILLIS + " dakika önce";
+            return  diff / MINUTE_MILLIS + " minute ago";
         } else if (diff < 90 * MINUTE_MILLIS) {
-            return "Bir saat önce";
+            return "One hour ago";
         } else if (diff < 24 * HOUR_MILLIS) {
-            return diff / HOUR_MILLIS + " saat önce";
+            return diff / HOUR_MILLIS + " hour ago";
         } else if (diff < 48 * HOUR_MILLIS) {
-            return "Dün";
+            return "Yesterday";
         } else {
-            return  diff / DAY_MILLIS + " gün önce";
+            return  diff / DAY_MILLIS + " day ago";
         }
     }
 
@@ -67,7 +67,7 @@ public class RelativeTime extends Application {
         } else if (diff < 48 * HOUR_MILLIS) {
             return "Dun";
         } else {
-            return  diff / DAY_MILLIS+ " gün " + "önce";
+            return  diff / DAY_MILLIS+ " day " + "ago";
         }
 
     }

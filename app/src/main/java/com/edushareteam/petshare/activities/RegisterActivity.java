@@ -90,8 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
         mUsersProvider = new UsersProvider();
 
         mBuilderSelector = new AlertDialog.Builder(this);
-        mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
-        options = new CharSequence[]{"Galeriden resim seç", "Fotoğraf çek"};
+        mBuilderSelector.setTitle("Please select an option");
+        options = new CharSequence[]{"Choose picture from gallery", "Take photo"};
 
         spinnerDataList = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(RegisterActivity.this,
@@ -101,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         mDialog = new SpotsDialog.Builder()
                 .setContext(this)
-                .setMessage("Kayıt  Yapılıyor ...")
+                .setMessage("Registering ...")
                 .setCancelable(false).build();
 
         binding.imageViewProfile.setOnClickListener(view1 -> selectOptionImage(1));
@@ -149,16 +149,16 @@ public class RegisterActivity extends AppCompatActivity {
                         if (password.length() >= 6) {
                             createUser(username, email, password, city, bio, mImageFile);
                         } else {
-                            Toast.makeText(this, "Şifreniz en az 6 karakter olmalıdır", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Your password must be at least 6 characters", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(this, "Parolalar uyuşmuyor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, "Tüm alanları doldurdunuz ancak e-posta geçerli değil", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "You have filled in all the fields but the email is not valid", Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(this, "Devam etmek için tüm alanları ekleyiniz", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Add all fields to continue", Toast.LENGTH_SHORT).show();
             }
         } else if (mPhotoFile != null) {
             if (!username.isEmpty() && !email.isEmpty() && !password.isEmpty() && !city.isEmpty() && !bio.isEmpty() && !confirmPassword.isEmpty() && mPhotoFile != null) {
@@ -167,16 +167,16 @@ public class RegisterActivity extends AppCompatActivity {
                         if (password.length() >= 6) {
                             createUser(username, email, password, city, bio, mPhotoFile);
                         } else {
-                            Toast.makeText(this, "Şifreniz en az 6 karakter olmalıdır", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Your password must be at least 6 characters", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(this, "Parolalar uyuşmuyor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, "Tüm alanları girdiniz ancak e-posta geçerli değil", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "You have filled in all the fields but the email is not valid", Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(this, "Devam etmek için tüm alanları ekleyin", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Add all fields to continue", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -214,19 +214,19 @@ public class RegisterActivity extends AppCompatActivity {
                                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             startActivity(intent);
                                         } else {
-                                            Toast.makeText(RegisterActivity.this, "Kullanıcı veritabanında saklanamadı", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RegisterActivity.this, "The user could not be stored in the database", Toast.LENGTH_SHORT).show();
                                         }
                                     });
                                 });
                             }
                         });
                     } else {
-                        Toast.makeText(RegisterActivity.this, "Mail Kullanıcı veritabanında saklanamadı", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Mail User could not be stored in database", Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
                 mDialog.dismiss();
-                Toast.makeText(RegisterActivity.this, "Kullanıcı kaydedilemedi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "User failed to register", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -266,7 +266,7 @@ public class RegisterActivity extends AppCompatActivity {
             try {
                 photoFile = createPhotoFile(requestCode);
             } catch (Exception e) {
-                Toast.makeText(this, "Dosyada bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "An error occurred in the file " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
 
             if (photoFile != null) {
@@ -309,8 +309,8 @@ public class RegisterActivity extends AppCompatActivity {
                 mImageFile = FileUtil.from(this, data.getData());
                 binding.imageViewProfile.setImageBitmap(BitmapFactory.decodeFile(mImageFile.getAbsolutePath()));
             } catch (Exception e) {
-                Log.d("ERROR", "Bir hata oluştu" + e.getMessage());
-                Toast.makeText(this, "Bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("ERROR", "Something went wrong" + e.getMessage());
+                Toast.makeText(this, "Something went wrong " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
 

@@ -62,7 +62,7 @@ public class MyFirebaseMessagingClient extends FirebaseMessagingService {
     private void showNotificationMessage(Map<String, String> data) {
         final String imageSender = data.get("imageSender");
         final String imageReceiver = data.get("imageReceiver");
-        Log.d("Gir", "Yeni mesaj");
+        Log.d("Enter", "New message");
         getImageSender(data, imageSender, imageReceiver);
     }
 

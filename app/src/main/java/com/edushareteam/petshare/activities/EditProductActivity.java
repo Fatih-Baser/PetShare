@@ -123,12 +123,12 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
         });
         mDialog = new SpotsDialog.Builder()
                 .setContext(this)
-                .setMessage("Lütfen biraz bekleyiniz")
+                .setMessage("Please wait")
                 .setCancelable(false).build();
 
         mBuilderSelector = new AlertDialog.Builder(this);
-        mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
-        options = new CharSequence[]{"Galeriden Resmi seç", "Fotograf çek"};
+        mBuilderSelector.setTitle("Please select one");
+        options = new CharSequence[]{"Select image from gallery", "Take a picture"};
 
         binding.circleImageBack.setOnClickListener(view1 -> finish());
 
@@ -307,7 +307,7 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                 updatePost(post);
             }
         } else {
-            Toast.makeText(this, "Alanları doldurun lütfen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please fill the places", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -343,14 +343,14 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                                 });
                             } else {
                                 mDialog.dismiss();
-                                Toast.makeText(EditProductActivity.this, "2 numaralı resim kaydedilemedi", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(EditProductActivity.this, "Second image has not saved", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                 });
             } else {
                 mDialog.dismiss();
-                Toast.makeText(EditProductActivity.this, "Görüntü kaydedilirken bir hata oluştu", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditProductActivity.this, "An error occurred while saving the image", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -384,7 +384,7 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                 });
             } else {
                 mDialog.dismiss();
-                Toast.makeText(EditProductActivity.this, "Görüntü kaydedilirken bir hata oluştu", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditProductActivity.this, "An error occurred while saving the image", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -396,9 +396,9 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
         mPostProvider.updatePost(post).addOnCompleteListener(task -> {
             mDialog.dismiss();
             if (task.isSuccessful()) {
-                Toast.makeText(EditProductActivity.this, "Bilgiler doğru bir şekilde güncellendi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProductActivity.this, "Information updated correctly", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(EditProductActivity.this, "Bilgiler güncellenemedi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProductActivity.this, "information could not update ", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -430,7 +430,7 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
             try {
                 photoFile = createPhotoFile(requestCode);
             } catch (Exception e) {
-                Toast.makeText(this, "Dosyada bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "An error occurred in the file " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
             if (photoFile != null) {
                 Uri photoUri = FileProvider.getUriForFile(EditProductActivity.this, "com.fatihbaser.edusharedemo", photoFile);
@@ -474,8 +474,8 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                 mImageFile = FileUtil.from(this, data.getData());
                 binding.imageViewPost1.setImageBitmap(BitmapFactory.decodeFile(mImageFile.getAbsolutePath()));
             } catch (Exception e) {
-                Log.d("ERROR", "Bir hata oluştu " + e.getMessage());
-                Toast.makeText(this, "Bir hata oluştu" + e.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("ERROR", "Something went wrong " + e.getMessage());
+                Toast.makeText(this, "Something went wrong" + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
         if (requestCode == GALLERY_REQUEST_CODE_2 && resultCode == RESULT_OK) {
@@ -484,8 +484,8 @@ public class EditProductActivity extends AppCompatActivity implements DatePicker
                 mImageFile2 = FileUtil.from(this, data.getData());
                 binding.imageViewPost2.setImageBitmap(BitmapFactory.decodeFile(mImageFile2.getAbsolutePath()));
             } catch (Exception e) {
-                Log.d("ERROR", "Bir hata oluştu " + e.getMessage());
-                Toast.makeText(this, "Bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("ERROR", "Something went wrong " + e.getMessage());
+                Toast.makeText(this, "Something went wrong " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
         /**

@@ -65,12 +65,12 @@ public class LoginActivity extends AppCompatActivity {
                             String mail = resetMail.getText().toString();
                             mAuthProvider.resetPassword(mail);
                             Toast.makeText(getApplicationContext(),
-                                    "Şifre yenileme linki için lütfen e-posta hesabınızı kontrol ediniz.",
+                                    "Please check your e-mail account for the password reset link.",
                                     Toast.LENGTH_SHORT).show();
                         }
                         else{
                             Toast.makeText(getApplicationContext(),
-                                    "Lütfen geçerli bir e-posta adresi giriniz.",
+                                    "Please enter a valid e-mail address.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e){
@@ -116,11 +116,11 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 } else {
-                    Toast.makeText(LoginActivity.this, "Girdiğiniz e-posta veya şifre doğru değil", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "The email or password you entered is not correct", Toast.LENGTH_LONG).show();
                 }
             });
         }else{
-            Toast.makeText(LoginActivity.this, "Lütfen boş alanları dodurunuz !", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, "Please fill in the blanks!", Toast.LENGTH_LONG).show();
         }
     }
 }

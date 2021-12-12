@@ -112,7 +112,7 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
 
         mDialog = new SpotsDialog.Builder()
                 .setContext(this)
-                .setMessage("Biraz bekle ")
+                .setMessage("Please wait ")
                 .setCancelable(false).build();
 
         binding.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -130,8 +130,8 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
             }
         });
         mBuilderSelector = new AlertDialog.Builder(this);
-        mBuilderSelector.setTitle("Lütfen bir seçenek seçiniz");
-        options = new CharSequence[]{"Galeriden resim seç", "Fotograf çek"};
+        mBuilderSelector.setTitle("Please select an option");
+        options = new CharSequence[]{"Choose image from gallery", "Take a pıcture"};
 
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,7 +188,7 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
             try {
                 photoFile = createPhotoFile(requestCode);
             } catch (Exception e) {
-                Toast.makeText(this, "Dosyada bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "An error occurred in the file " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
             if (photoFile != null) {
                 Uri photoUri = FileProvider.getUriForFile(AddProductActivity.this, "com.edushareteam.petshare", photoFile);
@@ -234,10 +234,10 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
             } else if (mPhotoFile != null && mImageFile2 != null) {
                 saveImage(mPhotoFile, mImageFile2);
             } else {
-                Toast.makeText(this, "Bir resim seçmelisiniz", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You must choose an image", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(this, "Lütfen boş alanları doldurunuz", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please fill in the blanks", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -271,25 +271,25 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
                                     mDialog.dismiss();
                                     if (taskSave.isSuccessful()) {
                                         // clearForm();
-                                        Toast.makeText(AddProductActivity.this, "Bilgiler doğru bir şekilde saklandı", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(AddProductActivity.this, "Information stored correctly", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(AddProductActivity.this, HomeActivity.class);
 
                                         startActivity(intent);
 
                                     } else {
-                                        Toast.makeText(AddProductActivity.this, "Bilgiler saklanamadı", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(AddProductActivity.this, "Information could not be stored", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             });
                         } else {
                             mDialog.dismiss();
-                            Toast.makeText(AddProductActivity.this, "2 numaralı resim kaydedilemedi", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddProductActivity.this, "Picture number 2 could not be saved", Toast.LENGTH_SHORT).show();
                         }
                     });
                 });
             } else {
                 mDialog.dismiss();
-                Toast.makeText(AddProductActivity.this, "Görüntü kaydedilirken bir hata oluştu", Toast.LENGTH_LONG).show();
+                Toast.makeText(AddProductActivity.this, "An error occurred while saving the image", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -357,8 +357,8 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
                 }
                 binding.imageViewPost1.setImageBitmap(BitmapFactory.decodeFile(mImageFile.getAbsolutePath()));
             } catch (Exception e) {
-                Log.d("ERROR", "Bir hata oluştu " + e.getMessage());
-                Toast.makeText(this, "Bir hata oluştu" + e.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("ERROR", "Something went wrong" + e.getMessage());
+                Toast.makeText(this, "Something went wrong" + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
         if (requestCode == GALLERY_REQUEST_CODE_2 && resultCode == RESULT_OK) {
@@ -369,8 +369,8 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
                 }
                 binding.imageViewPost2.setImageBitmap(BitmapFactory.decodeFile(mImageFile2.getAbsolutePath()));
             } catch (Exception e) {
-                Log.d("ERROR", "Bir hata oluştu " + e.getMessage());
-                Toast.makeText(this, "Bir hata oluştu " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("ERROR", "Something went wrong " + e.getMessage());
+                Toast.makeText(this, "Something went wrong " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
         /**

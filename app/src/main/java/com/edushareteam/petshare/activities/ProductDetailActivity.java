@@ -1,13 +1,13 @@
 package com.edushareteam.petshare.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.edushareteam.petshare.R;
 import com.edushareteam.petshare.adapters.SliderAdapter;
@@ -88,10 +88,10 @@ public class ProductDetailActivity extends AppCompatActivity {
         if (!mIdUser.equals("")) {
             Intent intent = new Intent(ProductDetailActivity.this, UserProfileActivity.class);
             intent.putExtra("idUser", mIdUser);
-            System.out.println(mIdUser+"idUser");
+            System.out.println(mIdUser + "idUser");
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Kullanıcı kimliği hala yüklenmedi", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "User ID still not loaded", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -104,9 +104,8 @@ public class ProductDetailActivity extends AppCompatActivity {
             intent.putExtra("idUser1", mAuthProvider.getUid());
             intent.putExtra("idUser2", mIdUser);
             startActivity(intent);
-        }
-        else{
-            Toast.makeText(this, "Üzgünüm kendine mesaj gönderemezsin !!", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Sorry you can't send messages to yourself!!", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -146,7 +145,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                     if (title != null) {
                         binding.textViewTitle.setText(title.toUpperCase());
                     }
-                    mExtraTitle =title;
+                    mExtraTitle = title;
 
                 }
                 if (documentSnapshot.contains("description")) {
@@ -164,8 +163,6 @@ public class ProductDetailActivity extends AppCompatActivity {
                         case "0":
                             binding.imageViewValue.setImageResource(R.drawable.heart_c);
                             break;
-
-
                     }
 
                 }
@@ -221,8 +218,8 @@ public class ProductDetailActivity extends AppCompatActivity {
                     if (mAuthProvider.getUid().equals(mIdUser)) {
                         binding.chat.setVisibility(View.INVISIBLE);
                     }
-                    System.out.println(mAuthProvider.getUid()+" title");
-                    System.out.println(mIdUser+" titleaaa");
+                    System.out.println(mAuthProvider.getUid() + " title");
+                    System.out.println(mIdUser + " titleaaa");
                 }
                 if (documentSnapshot.contains("quality")) {
                     Long mQuality = documentSnapshot.getLong("quality");

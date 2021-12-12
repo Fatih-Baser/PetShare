@@ -312,6 +312,15 @@
                 android:layout_marginRight="30dp"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:gravity="left"
+                    android:text="Expiry Date (If needed)"
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
+
+
                 <Button
                     android:id="@+id/button"
                     android:layout_width="wrap_content"

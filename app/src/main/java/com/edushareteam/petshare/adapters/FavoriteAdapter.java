@@ -167,9 +167,9 @@ public class FavoriteAdapter extends FirestoreRecyclerAdapter<Like, FavoriteAdap
     private void deletePost(String postId) {
         mLikeProvider.delete(postId).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(context, "Yayın başarıyla kaldırıldı", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Post successfully removed", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(context, "Gönderi silinemedi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Could not delete post", Toast.LENGTH_SHORT).show();
             }
         });
     }
