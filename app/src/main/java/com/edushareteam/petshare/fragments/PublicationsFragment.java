@@ -12,12 +12,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.edushareteam.petshare.R;
 import com.edushareteam.petshare.activities.AddPublicationsActivity;
 import com.edushareteam.petshare.activities.FavoriteActivity;
+import com.edushareteam.petshare.activities.MainActivity;
+import com.edushareteam.petshare.activities.MyPublicationsActivity;
 import com.edushareteam.petshare.adapters.PublicationsAdapter;
 import com.edushareteam.petshare.databinding.FragmentPublicationsBinding;
 import com.edushareteam.petshare.models.Request;
@@ -27,7 +30,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.Query;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
-public class PublicationsFragment extends Fragment implements MaterialSearchBar.OnSearchActionListener {
+public class PublicationsFragment extends Fragment  {
 
     private FragmentPublicationsBinding binding;
     AuthProvider mAuthProvider;
@@ -61,38 +64,20 @@ public class PublicationsFragment extends Fragment implements MaterialSearchBar.
         setHasOptionsMenu(true);
         binding.recyclerViewProducts.setLayoutManager(new GridLayoutManager(getActivity(), 1));
 
+        binding.mypublication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MyPublicationsActivity.class);
+                startActivity(intent);
+            }
+        });
         mAuthProvider = new AuthProvider();
         mPostProvider = new RequestProvider();
 
-        binding.searchBar.setOnSearchActionListener(this);
-        binding.searchBar.inflateMenu(R.menu.main_menu);
-        binding.searchBar.setMenuIcon(R.drawable.img);
-        binding.searchBar.getMenu().setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.itemFav) {
-                    Intent intent = new Intent(getContext(), FavoriteActivity.class);
-                    startActivity(intent);
 
-                }
-                return true;
-            }
-        });
 
         binding.fab.setOnClickListener(view1 -> goToPost());
         return view;
-    }
-
-    private void searchByTitle(String title) {
-        Query query = mPostProvider.getPostByTitle(title);
-        FirestoreRecyclerOptions<Request> options =
-                new FirestoreRecyclerOptions.Builder<Request>()
-                        .setQuery(query, Request.class)
-                        .build();
-        mPostsAdapterSearch = new PublicationsAdapter(options, getContext());
-        mPostsAdapterSearch.notifyDataSetChanged();
-        binding.recyclerViewProducts.setAdapter(mPostsAdapterSearch);
-        mPostsAdapterSearch.startListening();
     }
 
     private void getAllPost() {
@@ -142,20 +127,5 @@ public class PublicationsFragment extends Fragment implements MaterialSearchBar.
         }
     }
 
-    @Override
-    public void onSearchStateChanged(boolean enabled) {
-        if (!enabled) {
-            getAllPost();
-        }
-    }
 
-    @Override
-    public void onSearchConfirmed(CharSequence text) {
-        searchByTitle(text.toString());
-    }
-
-    @Override
-    public void onButtonClicked(int buttonCode) {
-
-    }
 }
