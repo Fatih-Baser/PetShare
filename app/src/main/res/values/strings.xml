@@ -8,17 +8,17 @@
 
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">NEXT</string>
-    <string name="skip">Geç</string>
+    <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
-    <string name="slide_1_title">Hoşgeldiniz</string>
-    <string name="slide_1_desc">EduShare hakkında \n size bir kaç bilgilendirmemiz var!</string>
+    <string name="slide_1_title">Welcome</string>
+    <string name="slide_1_desc">We have some information about \n PetShare for you!</string>
 
-    <string name="slide_2_title">EduShare Nedir?</string>
-    <string name="slide_2_desc">Öğrencilerin okul ihtiyaçlarını \n diğer öğrencilerden hızlı ve kolayca \n temin edebilecekleri telefon uygulaması.</string>
+    <string name="slide_2_title">What is PetShare?</string>
+    <string name="slide_2_desc">PetShare is a phone application \n that positively supports pet ownership \n and meets the needs of pet owners \n easily and quickly.</string>
 
-    <string name="slide_3_title">Mentoring Özelliği</string>
-    <string name="slide_3_desc">Üniversiteye yeni başlayan öğrenciler \n üst dönemleriyle iletişime geçip onların \n tecrübe ve bilgilerinden yararlanabiliyor.</string>
+    <string name="slide_3_title">Donation</string>
+    <string name="slide_3_desc">Thanks to the donation option, PetShare, where  \n you can meet the needs of your animal friend \n together with other animal lovers, also has the \n feature of posting publications to shelters.</string>
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
@@ -26,4 +26,13 @@
     <string name="create_account"><u>Create Account?</u></string>
     <string name="forget_your_password"><u>Forget your password?</u></string>
 
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dots_height">64dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+    <dimen name="img_width_height">120dp</dimen>
+    <dimen name="slide_title">36dp</dimen>
+    <dimen name="slide_desc">18dp</dimen>
+    <dimen name="desc_padding">20dp</dimen>
 </resources>
