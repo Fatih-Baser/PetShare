@@ -148,6 +148,14 @@ public class AddProductActivity extends AppCompatActivity implements DatePickerD
 
         binding.imageViewPost2.setOnClickListener(view14 -> selectOptionImage(2));
 
+        binding.buttonMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         spinnerDataList = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(AddProductActivity.this,
                 android.R.layout.simple_spinner_dropdown_item, spinnerDataList);

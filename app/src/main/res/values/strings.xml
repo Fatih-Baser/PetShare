@@ -35,4 +35,5 @@
     <dimen name="slide_title">36dp</dimen>
     <dimen name="slide_desc">18dp</dimen>
     <dimen name="desc_padding">20dp</dimen>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
